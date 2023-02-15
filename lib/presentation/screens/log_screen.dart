@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sense_more/business_logic/cubit/cubit/log_cubit.dart';
+import 'package:sense_more/business_logic/cubit/log_cubit/log_cubit.dart';
 
 class LogScreen extends StatelessWidget {
   const LogScreen({super.key});

@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "609355298811",
+    "project_id": "sensemore-6c16d",
+    "storage_bucket": "sensemore-6c16d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609355298811:android:71d08ddbc073dd17933d5e",
+        "android_client_info": {
+          "package_name": "com.example.sense_more"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609355298811-624njka9u640dabv85gcfkrbtfe29h4b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sense_more",
+            "certificate_hash": "008bc77aac872bb0df3326ef8006df7ad00d5b9f"
+          }
+        },
+        {
+          "client_id": "609355298811-k07egv8dfqsae4aendk8f2ct9r2tqnph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sense_more",
+            "certificate_hash": "3288d19602a0fdd97d1fda5a03de3ecbfc84f6a1"
+          }
+        },
+        {
+          "client_id": "609355298811-mkmtpntes0h7affsmqkj11omte02cf2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClWKtRpg_OFaglgmjZyHKetiZv6fyKoOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609355298811-96sb7ec68r2vcbap666m8bsn4i6o1hm7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "609355298811-12ghukmut84lvg28q991l2nmoo8u9lv8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.senseMore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
