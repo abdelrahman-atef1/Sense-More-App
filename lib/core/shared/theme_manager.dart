@@ -32,7 +32,7 @@ ThemeData getApplicationTheme() {
       // trackBorderColor:MaterialStateProperty.all(ColorManager.lightGrey),
     ),
     // cardview theme
-    cardTheme: CardTheme(
+    cardTheme: const CardTheme(
         color: ColorManager.white,
         shadowColor: ColorManager.grey,
         elevation: AppSize.s4),
@@ -41,11 +41,12 @@ ThemeData getApplicationTheme() {
         centerTitle: true,
         color: ColorManager.white,
         elevation: AppSize.s0,
+        scrolledUnderElevation: AppSize.s0,
         titleTextStyle:
             getRegularStyle(fontSize: FontSize.s14, color: ColorManager.white)),
     // button theme
-    buttonTheme: ButtonThemeData(
-        shape: const StadiumBorder(),
+    buttonTheme: const ButtonThemeData(
+        shape: StadiumBorder(),
         disabledColor: ColorManager.grey1,
         buttonColor: ColorManager.primary,
         splashColor: ColorManager.primaryLight),
@@ -79,13 +80,17 @@ ThemeData getApplicationTheme() {
             color: ColorManager.primary, fontSize: FontSize.s14),
         titleLarge: getBoldStyle(
             color: ColorManager.primary, fontSize: FontSize.s14),
-        titleMedium: getBoldStyle(
-            color: ColorManager.primary, fontSize: FontSize.s12),
-        titleSmall: getBoldStyle(
+        titleMedium: getMediumStyle(
+            color: ColorManager.grey1, fontSize: FontSize.s10),
+        titleSmall: getRegularStyle(
             color: ColorManager.primary, fontSize: FontSize.s10),
-        bodyLarge: getBoldStyle(color: ColorManager.primary, fontSize: FontSize.s16),
-        bodyMedium: getRegularStyle(color: ColorManager.primary,height: 1.8 ,fontSize: FontSize.s14),
-        bodySmall: getRegularStyle(color: ColorManager.grey)),
+        bodyLarge: getMediumStyle(color: ColorManager.primary, fontSize: FontSize.s16),
+        bodyMedium: getMediumStyle(color: ColorManager.primary,height: 1.8 ,fontSize: FontSize.s14),
+        bodySmall: getRegularStyle(color: ColorManager.grey),
+        labelLarge: getMediumStyle(color: ColorManager.primary, fontSize: FontSize.s14),
+        labelMedium: getMediumStyle(color: ColorManager.primary, fontSize: FontSize.s12),
+        labelSmall: getRegularStyle(color: ColorManager.grey, fontSize: FontSize.s10),
+        ),
     // input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(
         // content padding
@@ -116,13 +121,13 @@ ThemeData getApplicationTheme() {
             ),
         errorBorder: OutlineInputBorder(
             borderSide:
-                BorderSide(color: ColorManager.error, width: AppSize.s1),
+                const BorderSide(color: ColorManager.error, width: AppSize.s1),
             borderRadius: BorderRadius.circular(AppSize.s12),
             ),
         focusedErrorBorder: OutlineInputBorder(
             borderSide:
                 const BorderSide(color: ColorManager.primaryLight, width: AppSize.s1),
-            borderRadius: BorderRadius.circular(AppSize.s16.r),
+            borderRadius: BorderRadius.circular(AppSize.s12),
             )),
     // label style
   );

@@ -1,15 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/core/shared/assets_manager.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sense_more/core/shared/get_it_helper.dart';
 import 'package:sense_more/core/shared/string_manager.dart';
 import 'package:sense_more/core/shared/style_manager.dart';
 import 'package:sense_more/core/shared/values_manager.dart';
+import 'package:sense_more/presentation/widgets/auto_direction_text_form_field.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
@@ -19,10 +22,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-    create: (context) => LoginCubit(),
+    create: (context) => getIt.get<LoginCubit>(),
     child: BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state){
-    var bloc = BlocProvider.of<LoginCubit>(context);
+        LoginCubit cubit = getIt.get<LoginCubit>();
         return Scaffold(
           body: SafeArea(
             child: Padding(
@@ -34,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Text('تسجيل الدخول',style: getBoldStyle(color: ColorManager.primary,fontSize: FontSize.s18.sp)),
                       SizedBox(height: 20.h),
-                      SvgPicture.asset(Assets.user_circle,width: 60.r),
+                      SvgPicture.asset(SVGAssets.userCircle,width: 60.r),
                       SizedBox(height: 20.h),
                       Form(
                         child: Column(
@@ -42,15 +45,17 @@ class LoginScreen extends StatelessWidget {
                             Row(
                               children: [
                                 Expanded(
-                                  child: TextFormField(
+                                  child: AutoDirectionFormField(
                                     controller: emailController,
+                                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                                    validator: (value) => cubit.emailValidation(value??''),
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                       label: const Text('البريد الإلكتروني'),
                                       hintText: 'أدخل بريدك الإلكتروني',
                                       prefix: Padding(
                                         padding: const EdgeInsetsDirectional.only(end:8.0),
-                                        child: SvgPicture.asset(Assets.user,width: 15.r),
+                                        child: SvgPicture.asset(SVGAssets.user,width: 15.r),
                                       ),
                                     ),
                                   ),
@@ -61,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                             Row(
                               children: [
                                 Expanded(
-                                  child: TextFormField(
+                                  child: AutoDirectionFormField(
                                     controller: passwordController,
                                     obscureText: true,
                                     keyboardType: TextInputType.visiblePassword,
@@ -70,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                                       hintText: 'أدخل كلمة المرور',
                                       prefix: Padding(
                                         padding: const EdgeInsetsDirectional.only(end:8.0),
-                                        child: SvgPicture.asset(Assets.lock,width: 15.r),
+                                        child: SvgPicture.asset(SVGAssets.lock,width: 15.r),
                                       ),
                                     ),
                                   ),
@@ -83,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                       Row(
                         children: [
                           InkWell(
-                            onTap: ()=>Navigator.of(context).pushNamed('/forgotPassword'),
+                            onTap: ()=>Navigator.of(context).pushNamed(StringManager.forgotPasswordRoute),
                             child: Text(
                               'نسيت كلمة المرور؟',
                               style: getLinkStyle(),
@@ -92,14 +97,15 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 15.h),
+                      state is LoginLoadingEmail?  const SpinKitThreeBounce(color: ColorManager.primary,size: 25):
                       Row(
                         children: [
                           Expanded(
                             child: FilledButton(
                               onPressed: ()async{
-                                await bloc.login(emailController.text,passwordController.text);
+                                await cubit.login(emailController.text,passwordController.text);
                                 if(FirebaseAuth.instance.currentUser != null){
-                                  Navigator.of(context).pushNamed(StringManager.logRoute);
+                                  Navigator.of(context).pushReplacementNamed(StringManager.homeRoute);
                                 }
                               }, 
                               child: Text('تسجيل الدخول',style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s14),),
@@ -109,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 15),
                       InkWell(
-                        onTap: ()=> Navigator.of(context).pushNamed('/register'),
+                        onTap: ()=> Navigator.of(context).pushNamed(StringManager.registerRoute),
                         child: Text(
                           'ليس لديك حساب؟ قم بإنشاء حساب جديد.',
                           style: getLinkStyle(fontSize: FontSize.s12),
@@ -139,9 +145,13 @@ class LoginScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
+                          state is LoginLoadingGoogle?  const SpinKitThreeBounce(color: ColorManager.primary,size: 25):
                           InkWell(
                             onTap:()async{
-                              await bloc.loginWithGoogle();
+                              await cubit.loginWithGoogle();
+                              if(FirebaseAuth.instance.currentUser != null){
+                                Navigator.of(context).pushReplacementNamed(StringManager.homeRoute);
+                              }
                             },
                             child: Container(
                               width: 55.r,
@@ -150,7 +160,7 @@ class LoginScreen extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 border: Border.all(color: ColorManager.primaryDark),
                               ),
-                              child: Center(child: SvgPicture.asset(Assets.google,width: AppSize.s18.r)),
+                              child: Center(child: SvgPicture.asset(SVGAssets.google,width: AppSize.s18.r)),
                             ),
                           ),
                           Container(
@@ -160,7 +170,7 @@ class LoginScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(color: ColorManager.primaryDark),
                             ),
-                            child: Center(child: SvgPicture.asset(Assets.facebook,width: AppSize.s18.r)),
+                            child: Center(child: SvgPicture.asset(SVGAssets.facebook,width: AppSize.s18.r)),
                           ),
                           Container(
                             width: 55.r,
@@ -169,7 +179,7 @@ class LoginScreen extends StatelessWidget {
                               shape: BoxShape.circle,
                               border: Border.all(color: ColorManager.primaryDark),
                             ),
-                            child: Center(child: SvgPicture.asset(Assets.twitter,width: AppSize.s18.r)),
+                            child: Center(child: SvgPicture.asset(SVGAssets.twitter,width: AppSize.s18.r)),
                           ),
                         ],
                       ),

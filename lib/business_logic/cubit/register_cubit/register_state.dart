@@ -1,12 +1,19 @@
-part of 'register_cubit.dart';
+import 'dart:io';
 
-@immutable
-abstract class RegisterState {}
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class RegisterInitial extends RegisterState {}
+part 'register_state.freezed.dart';
+@freezed
+class  RegisterState with _$RegisterState {
+  const factory  RegisterState.initial() = _Initial;
 
-class RegisterLoading extends RegisterState {}
+  const factory  RegisterState.pickedImage(File imagePath) = _PickedImage;
 
-class RegisterError extends RegisterState {}
+  const factory  RegisterState.loadingGoogle() = _LoadingGoogle;
 
-class RegisterSuccess extends RegisterState {}
+  const factory  RegisterState.loadingEmail() = _LoadingEmail;
+
+  const factory  RegisterState.success() = _Success;
+
+  const factory  RegisterState.error(Object error) = _Error;
+}

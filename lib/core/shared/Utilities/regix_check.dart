@@ -20,4 +20,9 @@ class REGEXCheck {
   regex = RegExp('^(?!.*\\d)$sections$lastSection\$',unicode: true,caseSensitive: false);
     return regex.hasMatch(string);
   }
+ static bool isEmail(String string) {
+  late RegExp regex;
+  regex = RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$');
+    return regex.hasMatch(string);
+  }
 }
