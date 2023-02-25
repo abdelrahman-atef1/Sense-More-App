@@ -1,32 +1,49 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sense_more/business_logic/cubit/login_cubit/login_state.dart';
+import 'package:sense_more/core/network/network_exceptions.dart';
 import 'package:sense_more/core/shared/Utilities/regix_check.dart';
-import 'package:sense_more/core/shared/string_manager.dart';
+import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/data/repository/login_repositorey.dart';
 import 'package:sense_more/presentation/widgets/toast.dart';
 
-part 'login_state.dart';
-
 class LoginCubit extends Cubit<LoginState> {
   LoginRepository repository;
-  LoginCubit(this.repository) : super(LoginInitial());
+  UserModel? loggedInUser;
+  LoginCubit(this.repository) : super(const LoginState.initial());
 
+  bool isManager = false;
+  void changeType(bool isManager){
+    this.isManager = isManager;
+    emit(LoginState.changeUserType(isManager));
+  }
   Future login(String email, String password) async {
     if(emailValidation(email) != null || password.isEmpty){
       return DefaultToast.showMyToast('برجاء التحقق من صحة جميع الحقول المدخلة');
     }
-    try {
-      emit(LoginLoadingEmail());
-      await repository.login(email,password);
-      emit(LoginSuccess());
-    } on FirebaseAuthException catch (e) {
-      emit(LoginError(error: e));
-      DefaultToast.showMyToast(e.message.toString());
-      debugPrint('Failed with error code: ${e.code}');
-    }
+    emit(const LoginState.loadingEmail());
+    var response = await repository.login(email,password,isManager);
+    response.when(
+      success: (data) async{
+        var response = await repository.getUserDataFromStorage(uid: data.user?.uid??data.user?.email??'', isManager: isManager);
+        response.when(
+          success: (data){
+            loggedInUser = data;
+            emit(LoginState.success(data));
+          },
+          failure: (error){
+            DefaultToast.showMyToast(NetworkExceptions.getErrorMessage(error));
+            emit(LoginState.error(error));
+          }
+        );
+      },
+      failure: (e) {
+        DefaultToast.showMyToast(NetworkExceptions.getErrorMessage(e));
+        emit(LoginState.error(e));
+      },
+    );
+
   }
   
   String? emailValidation(String email){
@@ -35,35 +52,53 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future loginWithGoogle() async {
-    try {
-      emit(LoginLoadingGoogle());
-      final GoogleSignInAccount? googleUser = await repository.loginWithGoogle();
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
-      if (googleAuth?.accessToken == null && googleAuth?.idToken == null) {
-        emit(LoginError(error: 'فشل تسجيل الدخول'));
-        return DefaultToast.showMyToast('فشل تسجيل الدخول');
-      }
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-      UserCredential firebaseCredentials = await repository.signInWithCredential(credential);
-      await repository.saveUserDataToStorage(
-        uid: firebaseCredentials.user?.uid??googleUser?.email??'',
-        email: googleUser?.email??'',
-        image: googleUser?.photoUrl??'',
-        name: googleUser?.displayName??'');
-      emit(LoginSuccess());
-    } catch (e) {
-      emit(LoginError(error: e));
-    }
+      emit(const LoginState.loadingGoogle());
+      var googleUserResponse = await repository.loginWithGoogle();
+    googleUserResponse.when(
+      success: (googleUser) async{
+        final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+        if (googleAuth?.accessToken == null && googleAuth?.idToken == null) {
+          emit(const LoginState.error('فشل تسجيل الدخول'));
+          return DefaultToast.showMyToast('فشل تسجيل الدخول');
+        }
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+        );
+        var response = await repository.signInWithCredential(credential);
+        response.when(
+          success: (res) async{
+            var userModel = UserModel(
+                email: googleUser?.email??'',
+                profileImage: googleUser?.photoUrl??'',
+                fullName: googleUser?.displayName??'',
+                isManager: isManager
+                );
+            await repository.saveUserDataToStorage(
+              uid: res.user?.uid??googleUser?.email??'',
+              userModel: userModel
+              );
+            loggedInUser = userModel;
+            emit(LoginState.success(userModel));
+          },
+          failure: (e) {
+            DefaultToast.showMyToast(NetworkExceptions.getErrorMessage(e));
+            emit(LoginState.error(e));
+          },
+        );
+      },
+      failure: (e) {
+        DefaultToast.showMyToast(NetworkExceptions.getErrorMessage(e));
+        emit(LoginState.error(e));
+      },
+    );
+
   }
 
-  Future signOut(BuildContext context)async{
+  Future signOut()async{
     await FirebaseAuth.instance.signOut();
     await GoogleSignIn().signOut();
-    Navigator.of(context).popAndPushNamed(StringManager.loginRoute);
+    loggedInUser = null;
   }
 }
 

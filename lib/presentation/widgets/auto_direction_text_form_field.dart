@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:sense_more/core/shared/color_manager.dart';
 
 class AutoDirectionFormField extends StatefulWidget {
   const AutoDirectionFormField(
@@ -39,6 +40,7 @@ class _AutoDirectionFormFieldState extends State<AutoDirectionFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        cursorColor: ColorManager.primary,
         autovalidateMode: widget.autovalidateMode,
         obscureText: widget.obscureText,
         keyboardType: widget.keyboardType,

@@ -2,7 +2,10 @@
 class Assets {
   static const String imagesPath = 'assets/images/';
   static const String logo = '${imagesPath}logo.png';
+  static const String logoWhite = '${imagesPath}logo-white.png';
   static const String background = '${imagesPath}background.jpg';
+  static const String logoIcon = '${imagesPath}logo_icon.png';
+  static const String logoIconWhite = '${imagesPath}logo_icon_white.png';
 }
 class SVGAssets{
   static const String svgPath = 'assets/images/svg/';

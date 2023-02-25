@@ -40,7 +40,7 @@ class BluetoothHelper{
     // Start scanning
     flutterBlue.scan(
       scanMode: ScanMode.opportunistic,
-      timeout: const Duration(seconds: 10));
+      timeout: const Duration(seconds: 15));
     // Listen to scan results
     flutterBlue.scanResults.listen((results) => populateScanResults(results));
     flutterBlue.isScanning.listen((isScanning) async {
@@ -49,7 +49,7 @@ class BluetoothHelper{
       } else {
         debugPrint('not scanning');
         // await flutterBlue.stopScan();
-        flutterBlue.scan(timeout: const Duration(seconds: 10)).listen((results) {
+        flutterBlue.scan(timeout: const Duration(seconds: 15)).listen((results) {
               populateScanResults([results]);
         });
           // do something with scan results
@@ -76,7 +76,7 @@ class BluetoothHelper{
           debugPrint('${nearestDevice?.device.name} found! rssi: ${nearestDevice?.rssi}');
           getIt<HomeCubit>().emit(HomeState.bluetoothSearch(nearestDevice!));
         }
-        flutterBlue.scan(timeout: const Duration(seconds: 10));
+        flutterBlue.scan(timeout: const Duration(seconds: 15));
   }
   Future<void> _showMyDialog(BuildContext context) async {
     return showDialog<void>(

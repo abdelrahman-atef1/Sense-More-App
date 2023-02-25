@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sense_more/core/network/network_exceptions.dart';
+import 'package:sense_more/core/network/network_result.dart';
 import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/presentation/widgets/toast.dart';
 
@@ -8,64 +10,46 @@ class LoginRepository {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
-  Future login(String email, String password)async{
+  Future<NetworkResult<UserCredential>> login(String email, String password,bool isManager)async{
     try {
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
-      return userCredential;
-    } on FirebaseAuthException catch (e) {
-      String eMessage = '';
-      switch (e.code) {
-        case 'invalid-email': return eMessage = 'البريد الإلكتروني المدخل غير صالح';
-        case 'user-disabled': return eMessage = 'هذا الحساب معطل!\nبرجاء التواصل مع الدعم الفني اذا كنت تعتقد ان هناك خطأ ما';
-        case 'user-not-found': return eMessage = 'هذا المستخدم غير موجود';
-        case 'wrong-password': return eMessage = 'كلمة المرور غير صالحة';
-        default: eMessage = e.message??'';
-      }
-      DefaultToast.showMyToast(eMessage);
-      throw Exception(eMessage);
-    } catch (e){
-      throw Exception("Unknown Error\n$e");
+      return NetworkResult.success(userCredential);
+    } catch (error) {
+      return NetworkResult.failure(NetworkExceptions.getFirebaseException(error));
     }
   }
 
-  Future signInWithCredential(AuthCredential credential)async{
+  Future<NetworkResult<UserCredential>> signInWithCredential(AuthCredential credential)async{
     try {
       UserCredential userCredential = await firebaseAuth.signInWithCredential(credential);
-      return userCredential;
-    } on FirebaseAuthException catch (e) {
-      String eMessage = '';
-      switch (e.code) {
-        case 'user-disabled': return eMessage = 'هذا الحساب معطل!\nبرجاء التواصل مع الدعم الفني اذا كنت تعتقد ان هناك خطأ ما';
-        case 'user-not-found': return eMessage = 'هذا المستخدم غير موجود';
-        case 'wrong-password': return eMessage = 'كلمة المرور غير صالحة';
-        case '': return eMessage = '';
-        default: eMessage = e.message??'';
-      }
-      DefaultToast.showMyToast(eMessage);
-      throw Exception(eMessage);
-    } catch (e){
-      throw Exception("Unknown Error\n$e");
+      return NetworkResult.success(userCredential);
+    } catch (error) {
+      return NetworkResult.failure(NetworkExceptions.getFirebaseException(error));
     }
   }
-
-  Future loginWithGoogle()async{
+  Future<NetworkResult<UserModel>> getUserDataFromStorage({required String uid,required bool isManager}) async {
+    try {
+      var documentSnapshot =
+          await firebaseFirestore.collection('users').doc(uid).get();
+      UserModel userModel = UserModel.fromJson(documentSnapshot.data()!);
+      return NetworkResult.success(userModel);
+    } catch (error) {
+      return NetworkResult.failure(NetworkExceptions.getFirebaseException(error));
+    }
+  }
+  Future<NetworkResult<GoogleSignInAccount?>> loginWithGoogle()async{
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      return googleUser;
-    } catch (e){
-      throw Exception("Unknown Error\n$e");
+      return NetworkResult.success(googleUser);
+    } catch (error) {
+      return NetworkResult.failure(NetworkExceptions.getFirebaseException(error));
     }
   }
-  
-  Future saveUserDataToStorage(
-      {String? uid,
-      required String name,
-      required String email,
-      required String image}) async{
+  Future saveUserDataToStorage({String? uid,required UserModel userModel}) async{
     try {
       await firebaseFirestore.collection('users')
-          .doc(uid??email).set(UserModel(fullName: name,email: email,profileImage: image).toJson());
+          .doc(uid??userModel.email).set(userModel.toJson());
     } catch (e){
       throw Exception("Unknown Error\n$e");
     }

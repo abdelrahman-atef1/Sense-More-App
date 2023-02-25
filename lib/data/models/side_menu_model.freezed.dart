@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SideMenuModel {
   String get name => throw _privateConstructorUsedError;
   IconData get icon => throw _privateConstructorUsedError;
-  VoidCallback get onClick => throw _privateConstructorUsedError;
+  String get routeName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SideMenuModelCopyWith<SideMenuModel> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $SideMenuModelCopyWith<$Res> {
           SideMenuModel value, $Res Function(SideMenuModel) then) =
       _$SideMenuModelCopyWithImpl<$Res, SideMenuModel>;
   @useResult
-  $Res call({String name, IconData icon, VoidCallback onClick});
+  $Res call({String name, IconData icon, String routeName});
 }
 
 /// @nodoc
@@ -49,7 +49,7 @@ class _$SideMenuModelCopyWithImpl<$Res, $Val extends SideMenuModel>
   $Res call({
     Object? name = null,
     Object? icon = null,
-    Object? onClick = null,
+    Object? routeName = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -60,10 +60,10 @@ class _$SideMenuModelCopyWithImpl<$Res, $Val extends SideMenuModel>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as IconData,
-      onClick: null == onClick
-          ? _value.onClick
-          : onClick // ignore: cast_nullable_to_non_nullable
-              as VoidCallback,
+      routeName: null == routeName
+          ? _value.routeName
+          : routeName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$_SideMenuModelCopyWith<$Res>
       __$$_SideMenuModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, IconData icon, VoidCallback onClick});
+  $Res call({String name, IconData icon, String routeName});
 }
 
 /// @nodoc
@@ -92,7 +92,7 @@ class __$$_SideMenuModelCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? icon = null,
-    Object? onClick = null,
+    Object? routeName = null,
   }) {
     return _then(_$_SideMenuModel(
       name: null == name
@@ -103,10 +103,10 @@ class __$$_SideMenuModelCopyWithImpl<$Res>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as IconData,
-      onClick: null == onClick
-          ? _value.onClick
-          : onClick // ignore: cast_nullable_to_non_nullable
-              as VoidCallback,
+      routeName: null == routeName
+          ? _value.routeName
+          : routeName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -115,7 +115,7 @@ class __$$_SideMenuModelCopyWithImpl<$Res>
 
 class _$_SideMenuModel extends _SideMenuModel {
   const _$_SideMenuModel(
-      {required this.name, required this.icon, required this.onClick})
+      {required this.name, required this.icon, required this.routeName})
       : super._();
 
   @override
@@ -123,11 +123,11 @@ class _$_SideMenuModel extends _SideMenuModel {
   @override
   final IconData icon;
   @override
-  final VoidCallback onClick;
+  final String routeName;
 
   @override
   String toString() {
-    return 'SideMenuModel(name: $name, icon: $icon, onClick: $onClick)';
+    return 'SideMenuModel(name: $name, icon: $icon, routeName: $routeName)';
   }
 
   @override
@@ -137,11 +137,12 @@ class _$_SideMenuModel extends _SideMenuModel {
             other is _$_SideMenuModel &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.icon, icon) || other.icon == icon) &&
-            (identical(other.onClick, onClick) || other.onClick == onClick));
+            (identical(other.routeName, routeName) ||
+                other.routeName == routeName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, icon, onClick);
+  int get hashCode => Object.hash(runtimeType, name, icon, routeName);
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +155,7 @@ abstract class _SideMenuModel extends SideMenuModel {
   const factory _SideMenuModel(
       {required final String name,
       required final IconData icon,
-      required final VoidCallback onClick}) = _$_SideMenuModel;
+      required final String routeName}) = _$_SideMenuModel;
   const _SideMenuModel._() : super._();
 
   @override
@@ -162,7 +163,7 @@ abstract class _SideMenuModel extends SideMenuModel {
   @override
   IconData get icon;
   @override
-  VoidCallback get onClick;
+  String get routeName;
   @override
   @JsonKey(ignore: true)
   _$$_SideMenuModelCopyWith<_$_SideMenuModel> get copyWith =>

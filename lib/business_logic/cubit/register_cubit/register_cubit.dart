@@ -7,8 +7,11 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/business_logic/cubit/register_cubit/register_state.dart';
 import 'package:sense_more/core/shared/Utilities/validation.dart';
+import 'package:sense_more/core/shared/get_it_helper.dart';
+import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/presentation/widgets/toast.dart';
 
 
@@ -20,7 +23,14 @@ class RegisterCubit extends Cubit<RegisterState> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmationController = TextEditingController();
   File? pickedImage;
-  
+
+  bool isManager = false;
+
+  void changeType(bool isManager){
+    this.isManager = isManager;
+    emit(RegisterState.changeUserType(isManager));
+  }
+
   Future registerWithEmail(String email,String name, String password,String passwordConfirmation) async {
     if(pickedImage?.path == null || pickedImage!.path.isEmpty){
       return DefaultToast.showMyToast("برجاء إختيار صورة الملف الشخصي");
@@ -39,12 +49,12 @@ class RegisterCubit extends Cubit<RegisterState> {
       //Update User data and save to storage
       userCredentials.user?.updateDisplayName(name);
       userCredentials.user?.updatePhotoURL(uploadedImageUrl);
-      await saveUserDataToStorage(uid: userCredentials.user?.uid??email,
-      email: email,
-      image: uploadedImageUrl,
-      name: name,
-      );
+      var userModel = UserModel(fullName: name,email: email,isManager: isManager,profileImage: uploadedImageUrl,jobTitle: 'Flutter Developer');
+      await saveUserDataToStorage(
+        uid: userCredentials.user?.uid??email,
+        userModel: userModel);
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email,password: password);
+      getIt<LoginCubit>().loggedInUser = userModel;
       emit(const RegisterState.success());
     } on FirebaseAuthException catch (e) {
       emit(RegisterState.error(e));
@@ -53,15 +63,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  Future saveUserDataToStorage(
-      {required String uid,
-      required String name,
-      required String email,
-      required String image}) async{
+  Future saveUserDataToStorage({required UserModel userModel,required String uid}) async{
     await FirebaseFirestore.instance
         .collection('users')
         .doc(uid)
-        .set({'name': name, 'email': email, 'image': image});
+        .set(userModel.toJson());
   }
 
   Future pickImage()async{
@@ -92,9 +98,14 @@ class RegisterCubit extends Cubit<RegisterState> {
       var credentials = await FirebaseAuth.instance.signInWithCredential(credential);
       await saveUserDataToStorage(
         uid: credentials.user?.uid??googleUser?.email??'',
-        email: googleUser?.email??'',
-        image: googleUser?.photoUrl??'',
-        name: googleUser?.displayName??'');
+        userModel: UserModel(
+          email: googleUser?.email ?? '',
+          fullName: googleUser?.displayName ?? '',
+          jobTitle: 'Flutter Developer',
+          profileImage: googleUser?.photoUrl ?? '',
+          isManager: isManager,
+        ),
+      );
       emit(const RegisterState.success());
     } on FirebaseAuthException catch (e) {
       emit(RegisterState.error(e));

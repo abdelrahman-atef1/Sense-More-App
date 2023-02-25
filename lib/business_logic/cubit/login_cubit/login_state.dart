@@ -1,19 +1,14 @@
-part of 'login_cubit.dart';
 
-@immutable
-abstract class LoginState {}
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sense_more/data/models/user_model.dart';
 
-class LoginInitial extends LoginState {}
-
-class LoginLoadingEmail extends LoginState {}
-
-class LoginLoadingGoogle extends LoginState {}
-
-class LoginError extends LoginState {
-  Object error;
-  LoginError({
-    required this.error,
-  });
+part 'login_state.freezed.dart';
+@freezed
+class LoginState with _$LoginState {
+  const factory LoginState.initial() = _Initial;
+  const factory LoginState.changeUserType(bool isManager) = _ChangeUserType;
+  const factory LoginState.loadingEmail() = _LoadingEmail;
+  const factory LoginState.loadingGoogle() = _LoadingGoogle;
+  const factory LoginState.success(UserModel user) = _Success;
+  const factory LoginState.error(Object error) = _Error;
 }
-
-class LoginSuccess extends LoginState {}

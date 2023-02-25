@@ -11,6 +11,7 @@ import 'package:sense_more/core/shared/Utilities/validation.dart';
 import 'package:sense_more/core/shared/assets_manager.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
+import 'package:sense_more/core/shared/get_it_helper.dart';
 import 'package:sense_more/core/shared/string_manager.dart';
 import 'package:sense_more/core/shared/style_manager.dart';
 import 'package:sense_more/core/shared/values_manager.dart';
@@ -21,20 +22,12 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(
-    create: (context) => RegisterCubit(),
-    child: BlocBuilder<RegisterCubit, RegisterState>(
+    return  BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state){
-      var cubit = BlocProvider.of<RegisterCubit>(context);
+      var cubit = getIt<RegisterCubit>();
         return Scaffold(
           appBar: AppBar(
             scrolledUnderElevation: 0,
-            leading: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 20),
-              child: InkWell(
-                onTap: ()=> Navigator.of(context).pop(),
-                child: SvgPicture.asset(SVGAssets.backButton,width: 35.r)),
-            ),
           ),
           body: SafeArea(
             child: Padding(
@@ -162,6 +155,58 @@ class RegisterScreen extends StatelessWidget {
                         ],
                       )),
                     SizedBox(height: 5.h),
+                    //Radio
+                    BlocBuilder<RegisterCubit, RegisterState>(
+                      buildWhen: (previous, current) => current.mapOrNull(changeUserType: (isManager)=>true)??false,
+                      builder: (context, state) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Expanded(
+                              child: InkWell(
+                                onTap: ()=> cubit.changeType(true),
+                                child: Row(
+                                  children: [
+                                    Radio<bool>(
+                                        value: true,
+                                        groupValue: cubit.isManager,
+                                        onChanged: (checked) => cubit.changeType(true)),
+                                    Text(
+                                      'Manager',
+                                      style: TextStyle(
+                                          color: cubit.isManager == true
+                                              ? ColorManager.primary
+                                              : ColorManager.disabled),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: InkWell(
+                                onTap: ()=> cubit.changeType(false),
+                                child: Row(
+                                  children: [
+                                    Radio<bool>(
+                                        value: false,
+                                        groupValue: cubit.isManager,
+                                        onChanged: (checked) => cubit.changeType(false)),
+                                    Text(
+                                      'Employee',
+                                      style: TextStyle(
+                                          color: cubit.isManager == false
+                                              ? ColorManager.primary
+                                              : ColorManager.disabled),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        );
+                      },
+                    ),
+                    SizedBox(height: 5.h),
                     Row(
                       children: [
                         InkWell(
@@ -221,14 +266,14 @@ class RegisterScreen extends StatelessWidget {
                           margin: const EdgeInsets.symmetric(horizontal: 5),
                           width: 100.w,
                           height: 1,
-                          color: ColorManager.primaryExtraDark,
+                          color: ColorManager.primaryDark,
                         ),
                         Text('او',style: getBoldStyle(color: ColorManager.primary.withOpacity(0.6),fontSize: FontSize.s18),),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 5),
                           width: 100.w,
                           height: 1,
-                          color: ColorManager.primaryExtraDark,
+                          color: ColorManager.primaryDark,
                         ),
                       ],
                     ),
@@ -283,8 +328,7 @@ class RegisterScreen extends StatelessWidget {
             ),
           ),
         );
-    }),
-    );
+    });
     
   }
 }

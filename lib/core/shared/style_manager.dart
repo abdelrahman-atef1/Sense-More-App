@@ -4,30 +4,32 @@ import 'package:flutter/material.dart';
 
 
 
-TextStyle _getTextStyle(double fontSize,FontWeight fontWeight,Color color,double? height,{TextDecoration? decoration}){
+TextStyle _getTextStyle(double fontSize,FontWeight fontWeight,Color color,double? height,{TextDecoration? decoration,Color? decorationColor}){
   return TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
       color: color,
       fontFamily: FontConstants.fontFamily,
       height: height,
-      decoration: decoration
+      decoration: decoration,
+      decorationColor: decorationColor,
       );
 }
 
 // Regular Style
-TextStyle getRegularStyle({double fontSize = FontSize.s10, required Color color,double? height}){
+TextStyle getRegularStyle({double fontSize = FontSize.s14, required Color color,double? height}){
 return _getTextStyle(fontSize, FontWeightManager.regular, color,height);
 }
 // Regular Style
-TextStyle getLinkStyle({double fontSize = FontSize.s10,Color? color,double? height,TextDecoration? decoration}){
+TextStyle getLinkStyle({double fontSize = FontSize.s14,Color? color,double? height,TextDecoration? decoration}){
 return _getTextStyle(fontSize, FontWeightManager.regular,
-      color ?? ColorManager.primaryExtraDark.withOpacity(0.6), 
+      color ?? ColorManager.primaryDark, 
       height,
-      decoration: decoration ?? TextDecoration.underline);
+      decoration: decoration ?? TextDecoration.underline,
+      decorationColor: ColorManager.primaryDark);
 }
 // Medium Style
-TextStyle getMediumStyle({double fontSize = FontSize.s10, required Color color,double? height}){
+TextStyle getMediumStyle({double fontSize = FontSize.s14, required Color color,double? height}){
 return _getTextStyle(fontSize, FontWeightManager.medium, color,height);
 }
 // Light Style
@@ -35,7 +37,7 @@ TextStyle getLightStyle({double fontSize = FontSize.s10, required Color color,do
 return _getTextStyle(fontSize, FontWeightManager.light, color,height);
 }
 // Bold Style
-TextStyle getBoldStyle({double fontSize = FontSize.s10, required Color color,double? height}){
+TextStyle getBoldStyle({double fontSize = FontSize.s14, required Color color,double? height}){
 return _getTextStyle(fontSize, FontWeightManager.bold, color,height);
 }
 // Extra Bold Style
@@ -47,6 +49,6 @@ TextStyle getBlackStyle({double fontSize = FontSize.s18, required Color color,do
 return _getTextStyle(fontSize, FontWeightManager.black, color,height);
 }
 // SemiBold Style
-TextStyle getSemiBoldStyle({double fontSize = FontSize.s10, required Color color,double? height}){
+TextStyle getSemiBoldStyle({double fontSize = FontSize.s14, required Color color,double? height}){
 return _getTextStyle(fontSize, FontWeightManager.semiBold, color,height);
 }

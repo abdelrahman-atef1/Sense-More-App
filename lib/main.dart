@@ -30,21 +30,21 @@ class SenseMoreApp extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    getIt<BluetoothHelper>().scan(context);
+    // getIt<BluetoothHelper>().scan(context);
     return ScreenUtilInit(
       builder: (context, child) {
       return MaterialApp(
-          onGenerateRoute: appRouter.generateRoute,
+          onGenerateRoute: AppRouter.generateRoute,
           debugShowCheckedModeBanner: false,
           scrollBehavior: NoThumbScrollBehavior().copyWith(scrollbars: false),
           localizationsDelegates: const [
             AppLocalizations.delegate,
             ...GlobalMaterialLocalizations.delegates,
           ],
-          locale: const Locale('ar'),
+          locale: const Locale('en'),
           supportedLocales: const [
-            Locale('ar', 'EG'), // Arabic
             Locale('en', 'US'), // English
+            Locale('ar', 'EG'), // Arabic
           ],
           localeResolutionCallback: (locale, supportedLocales) {
           // Check if the current device locale is supported

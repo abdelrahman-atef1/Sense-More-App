@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class FontConstants {
-  static const String fontFamily = 'DG-3asomy';
+  static const String fontFamily = 'Inter';
 }
 
 class FontWeightManager {

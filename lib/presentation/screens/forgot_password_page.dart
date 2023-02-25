@@ -59,7 +59,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                 child: Text(
                                     'قم بإدخال الايميل الصحيح ليتم ارسال رابط استعادة كلمة المرور',
                                     style: getBoldStyle(
-                                        color: ColorManager.primaryExtraDark.withOpacity(0.85),
+                                        color: ColorManager.primaryDark.withOpacity(0.85),
                                         fontSize: FontSize.s12.sp)),
                               ),
                             ],

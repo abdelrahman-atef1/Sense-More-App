@@ -9,7 +9,7 @@ class SideMenuModel with _$SideMenuModel {
   const factory SideMenuModel(
     {required String name,
     required IconData icon,
-    required VoidCallback onClick,
+    required String routeName,
     }
   ) = _SideMenuModel;
 }

@@ -21,6 +21,7 @@ mixin _$RegisterState {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -31,6 +32,7 @@ mixin _$RegisterState {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -41,6 +43,7 @@ mixin _$RegisterState {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -52,6 +55,7 @@ mixin _$RegisterState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -62,6 +66,7 @@ mixin _$RegisterState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -72,6 +77,7 @@ mixin _$RegisterState {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
@@ -138,6 +144,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -151,6 +158,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -164,6 +172,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -181,6 +190,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -194,6 +204,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -207,6 +218,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
@@ -291,6 +303,7 @@ class _$_PickedImage implements _PickedImage {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -304,6 +317,7 @@ class _$_PickedImage implements _PickedImage {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -317,6 +331,7 @@ class _$_PickedImage implements _PickedImage {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -334,6 +349,7 @@ class _$_PickedImage implements _PickedImage {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -347,6 +363,7 @@ class _$_PickedImage implements _PickedImage {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -360,6 +377,7 @@ class _$_PickedImage implements _PickedImage {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
@@ -422,6 +440,7 @@ class _$_LoadingGoogle implements _LoadingGoogle {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -435,6 +454,7 @@ class _$_LoadingGoogle implements _LoadingGoogle {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -448,6 +468,7 @@ class _$_LoadingGoogle implements _LoadingGoogle {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -465,6 +486,7 @@ class _$_LoadingGoogle implements _LoadingGoogle {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -478,6 +500,7 @@ class _$_LoadingGoogle implements _LoadingGoogle {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -491,6 +514,7 @@ class _$_LoadingGoogle implements _LoadingGoogle {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
@@ -505,6 +529,170 @@ class _$_LoadingGoogle implements _LoadingGoogle {
 
 abstract class _LoadingGoogle implements RegisterState {
   const factory _LoadingGoogle() = _$_LoadingGoogle;
+}
+
+/// @nodoc
+abstract class _$$_ChangeUserTypeCopyWith<$Res> {
+  factory _$$_ChangeUserTypeCopyWith(
+          _$_ChangeUserType value, $Res Function(_$_ChangeUserType) then) =
+      __$$_ChangeUserTypeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isManager});
+}
+
+/// @nodoc
+class __$$_ChangeUserTypeCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$_ChangeUserType>
+    implements _$$_ChangeUserTypeCopyWith<$Res> {
+  __$$_ChangeUserTypeCopyWithImpl(
+      _$_ChangeUserType _value, $Res Function(_$_ChangeUserType) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isManager = null,
+  }) {
+    return _then(_$_ChangeUserType(
+      null == isManager
+          ? _value.isManager
+          : isManager // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeUserType implements _ChangeUserType {
+  const _$_ChangeUserType(this.isManager);
+
+  @override
+  final bool isManager;
+
+  @override
+  String toString() {
+    return 'RegisterState.changeUserType(isManager: $isManager)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeUserType &&
+            (identical(other.isManager, isManager) ||
+                other.isManager == isManager));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isManager);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeUserTypeCopyWith<_$_ChangeUserType> get copyWith =>
+      __$$_ChangeUserTypeCopyWithImpl<_$_ChangeUserType>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(File imagePath) pickedImage,
+    required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
+    required TResult Function() loadingEmail,
+    required TResult Function() success,
+    required TResult Function(Object error) error,
+  }) {
+    return changeUserType(isManager);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(File imagePath)? pickedImage,
+    TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
+    TResult? Function()? loadingEmail,
+    TResult? Function()? success,
+    TResult? Function(Object error)? error,
+  }) {
+    return changeUserType?.call(isManager);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(File imagePath)? pickedImage,
+    TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
+    TResult Function()? loadingEmail,
+    TResult Function()? success,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) {
+    if (changeUserType != null) {
+      return changeUserType(isManager);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_PickedImage value) pickedImage,
+    required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
+    required TResult Function(_LoadingEmail value) loadingEmail,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+  }) {
+    return changeUserType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_PickedImage value)? pickedImage,
+    TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
+    TResult? Function(_LoadingEmail value)? loadingEmail,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+  }) {
+    return changeUserType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_PickedImage value)? pickedImage,
+    TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
+    TResult Function(_LoadingEmail value)? loadingEmail,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (changeUserType != null) {
+      return changeUserType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeUserType implements RegisterState {
+  const factory _ChangeUserType(final bool isManager) = _$_ChangeUserType;
+
+  bool get isManager;
+  @JsonKey(ignore: true)
+  _$$_ChangeUserTypeCopyWith<_$_ChangeUserType> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -548,6 +736,7 @@ class _$_LoadingEmail implements _LoadingEmail {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -561,6 +750,7 @@ class _$_LoadingEmail implements _LoadingEmail {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -574,6 +764,7 @@ class _$_LoadingEmail implements _LoadingEmail {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -591,6 +782,7 @@ class _$_LoadingEmail implements _LoadingEmail {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -604,6 +796,7 @@ class _$_LoadingEmail implements _LoadingEmail {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -617,6 +810,7 @@ class _$_LoadingEmail implements _LoadingEmail {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
@@ -673,6 +867,7 @@ class _$_Success implements _Success {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -686,6 +881,7 @@ class _$_Success implements _Success {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -699,6 +895,7 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -716,6 +913,7 @@ class _$_Success implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -729,6 +927,7 @@ class _$_Success implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -742,6 +941,7 @@ class _$_Success implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
@@ -821,6 +1021,7 @@ class _$_Error implements _Error {
     required TResult Function() initial,
     required TResult Function(File imagePath) pickedImage,
     required TResult Function() loadingGoogle,
+    required TResult Function(bool isManager) changeUserType,
     required TResult Function() loadingEmail,
     required TResult Function() success,
     required TResult Function(Object error) error,
@@ -834,6 +1035,7 @@ class _$_Error implements _Error {
     TResult? Function()? initial,
     TResult? Function(File imagePath)? pickedImage,
     TResult? Function()? loadingGoogle,
+    TResult? Function(bool isManager)? changeUserType,
     TResult? Function()? loadingEmail,
     TResult? Function()? success,
     TResult? Function(Object error)? error,
@@ -847,6 +1049,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function(File imagePath)? pickedImage,
     TResult Function()? loadingGoogle,
+    TResult Function(bool isManager)? changeUserType,
     TResult Function()? loadingEmail,
     TResult Function()? success,
     TResult Function(Object error)? error,
@@ -864,6 +1067,7 @@ class _$_Error implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_PickedImage value) pickedImage,
     required TResult Function(_LoadingGoogle value) loadingGoogle,
+    required TResult Function(_ChangeUserType value) changeUserType,
     required TResult Function(_LoadingEmail value) loadingEmail,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
@@ -877,6 +1081,7 @@ class _$_Error implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_PickedImage value)? pickedImage,
     TResult? Function(_LoadingGoogle value)? loadingGoogle,
+    TResult? Function(_ChangeUserType value)? changeUserType,
     TResult? Function(_LoadingEmail value)? loadingEmail,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
@@ -890,6 +1095,7 @@ class _$_Error implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_PickedImage value)? pickedImage,
     TResult Function(_LoadingGoogle value)? loadingGoogle,
+    TResult Function(_ChangeUserType value)? changeUserType,
     TResult Function(_LoadingEmail value)? loadingEmail,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,

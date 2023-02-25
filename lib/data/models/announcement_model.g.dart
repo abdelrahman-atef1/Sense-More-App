@@ -6,20 +6,20 @@ part of 'announcement_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AnnouncmentModel _$$_AnnouncmentModelFromJson(Map<String, dynamic> json) =>
-    _$_AnnouncmentModel(
+AnnouncementsModel _$AnnouncementsModelFromJson(Map<String, dynamic> json) =>
+    AnnouncementsModel(
       date: json['date'] as String,
-      announcment: json['announcment'] as String,
+      announcement: json['announcement'] as String,
       uid: json['uid'] as String,
       user: json['user'] == null
           ? null
           : UserModel.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AnnouncmentModelToJson(_$_AnnouncmentModel instance) =>
+Map<String, dynamic> _$AnnouncementsModelToJson(AnnouncementsModel instance) =>
     <String, dynamic>{
       'date': instance.date,
-      'announcment': instance.announcment,
+      'announcement': instance.announcement,
       'uid': instance.uid,
       'user': instance.user,
     };

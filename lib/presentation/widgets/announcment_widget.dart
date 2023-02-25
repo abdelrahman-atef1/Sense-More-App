@@ -7,11 +7,11 @@ import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/style_manager.dart';
 import 'package:sense_more/data/models/announcement_model.dart';
 
-class AnnouncmentItem extends StatelessWidget {
-  final AnnouncmentModel announcmentModel;
-  const AnnouncmentItem({
+class AnnouncementItem extends StatelessWidget {
+  final AnnouncementsModel announcementModel;
+  const AnnouncementItem({
     super.key,
-    required this.announcmentModel,
+    required this.announcementModel,
   });
 
   @override
@@ -20,13 +20,11 @@ class AnnouncmentItem extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: ColorManager.primaryLight,
+        color: ColorManager.primary,
         borderRadius: BorderRadius.circular(6)
       ),
       child: Column(
         children: [
-          Text(announcmentModel.announcment,style: getLightStyle(color: Colors.white),),
-          SizedBox(height: 10.h),
           Row(
             children: [
               Container(
@@ -38,18 +36,20 @@ class AnnouncmentItem extends StatelessWidget {
                 ),
                 child: ClipOval(
                   child: CachedNetworkImage(
-                    imageUrl: announcmentModel.user?.profileImage ?? '',
+                    imageUrl: announcementModel.user?.profileImage ?? '',
                     fit: BoxFit.cover,
                     errorWidget: (context, url, error) => SvgPicture.asset(SVGAssets.userCircle,width: 30.r),
                     ),
                 ),
               ),
               SizedBox(width: 10.w),
-              Text(announcmentModel.user?.fullName??'',style: getLightStyle(color: ColorManager.white),),
+              Text(announcementModel.user?.fullName??'',style: getLightStyle(color: ColorManager.white),),
               const Spacer(),
-              Text(announcmentModel.date,style: getLightStyle(color: ColorManager.white),),
+              Text(announcementModel.date,style: getLightStyle(color: ColorManager.white),),
             ],
-          )
+          ),
+          SizedBox(height: 10.h),
+          Text(announcementModel.announcement,style: getLightStyle(color: Colors.white),),
         ],
       ),
     );

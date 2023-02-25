@@ -11,6 +11,8 @@ class  RegisterState with _$RegisterState {
 
   const factory  RegisterState.loadingGoogle() = _LoadingGoogle;
 
+  const factory  RegisterState.changeUserType(bool isManager) = _ChangeUserType;
+
   const factory  RegisterState.loadingEmail() = _LoadingEmail;
 
   const factory  RegisterState.success() = _Success;
