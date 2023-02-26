@@ -4,6 +4,7 @@ import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/business_logic/cubit/profile_cubit/profile_cubit.dart';
 import 'package:sense_more/business_logic/cubit/register_cubit/register_cubit.dart';
 import 'package:sense_more/business_logic/cubit/search_cubit/search_cubit.dart';
+import 'package:sense_more/business_logic/cubit/settings_cubit/settings_cubit.dart';
 import 'package:sense_more/core/shared/bluetooth_helper.dart';
 import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/data/repository/home_repository.dart';
@@ -26,6 +27,8 @@ void setupGetIt() {
   getIt.registerLazySingleton<ProfileCubit>(() => ProfileCubit());
 
   getIt.registerLazySingleton<SearchCubit>(() => SearchCubit());
+
+  getIt.registerLazySingleton<SettingsCubit>(() => SettingsCubit());
 
   getIt.registerSingleton<BluetoothHelper>(BluetoothHelper());
 

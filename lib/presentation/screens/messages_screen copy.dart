@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
+import 'package:sense_more/core/shared/get_it_helper.dart';
 import 'package:sense_more/core/shared/style_manager.dart';
+import 'package:sense_more/presentation/widgets/home_top_section.dart';
 import 'package:sense_more/presentation/widgets/top_section.dart';
 
 class MessagesScreen extends StatelessWidget {
@@ -24,17 +29,12 @@ class MessagesScreen extends StatelessWidget {
                 ),
               ),
             ),
-            ListView(
+            ListView.separated(
             shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              children: const [
-                MessageItem(name: 'Human Resources'),
-                Divider(),
-                MessageItem(name: 'Manager'),
-                Divider(),
-                // MessageItem(name: ''),
-                // Divider(),
-              ],
+              itemCount: 15,
+              itemBuilder: (_, i) => const MessageItem(),
+              separatorBuilder: (_, i) => const Divider(),
             ),
             SizedBox(height: 15.h),
           ],
@@ -45,9 +45,7 @@ class MessagesScreen extends StatelessWidget {
 }
 
 class MessageItem extends StatelessWidget {
-  final String name;
   const MessageItem({
-    required this.name,
     super.key,
   });
 
@@ -68,7 +66,7 @@ class MessageItem extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [ColorManager.primaryLight,ColorManager.primary]),
             ),
-            child: Text(name.split('').first.toUpperCase(),style: getBlackStyle(color: ColorManager.white,fontSize: FontSize.s22.sp),),
+            child: Text('H'.toUpperCase(),style: getBlackStyle(color: ColorManager.white,fontSize: FontSize.s22.sp),),
           ),
           SizedBox(width: 15.w),
           Expanded(
@@ -79,7 +77,7 @@ class MessageItem extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        '@$name',
+                        '@HRAbdelrahman',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: getBoldStyle(color: ColorManager.black),

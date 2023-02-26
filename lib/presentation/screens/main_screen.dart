@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'package:sense_more/app_router.dart';
-import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/presentation/screens/home_screen.dart';
 import 'package:sense_more/presentation/screens/menu_screen.dart';
@@ -72,14 +70,13 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<HomeCubit, HomeState>(
-        builder: (context, state) {
-          return PersistentTabView(
+      body: PersistentTabView(
             context,
             controller: controller,
             screens: buildScreens,
             items: navBarsItems,
             confineInSafeArea: true,
+            // stateManagement: false,
             decoration: NavBarDecoration(
               borderRadius: BorderRadius.circular(10.0),
               colorBehindNavBar: Colors.white,
@@ -98,9 +95,7 @@ class MainScreen extends StatelessWidget {
               duration: Duration(milliseconds: 200),
             ),
             navBarStyle: NavBarStyle.style12,
-          );
-        },
-      ),
+          )
     );
   }
 }

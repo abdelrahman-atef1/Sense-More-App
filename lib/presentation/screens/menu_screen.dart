@@ -1,7 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
@@ -17,14 +16,7 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeCubit cubit = getIt();
-    return BlocProvider<HomeCubit>(
-      create:(_)=> getIt<HomeCubit>()..initializeHome(),
-      child: BlocBuilder<HomeCubit, HomeState>(
-        builder: (context, state) {
-          state.whenOrNull(
-              bluetoothSearch: (nearestDevice) => debugPrint('NearestDevice: ${nearestDevice.device.name}'));
-          return Scaffold(
+    return Scaffold(
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -36,18 +28,29 @@ class MenuScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: ListView(
                         shrinkWrap: true,
-                        children: buildSettingsItems(context,cubit.menuItems)),
+                        children: buildSettingsItems(context,menuItems)),
                   ),
                 )
               ],
             ),
           );
-        },
-      ),
-    );
   }
 }
-
+  List<SideMenuModel> menuItems = [
+       const SideMenuModel(
+            icon: CupertinoIcons.profile_circled,
+            name: 'Profile Details',
+            routeName: StringManager.profileRoute),
+       const SideMenuModel(
+            icon: CupertinoIcons.settings,
+            name: 'Settings',
+            routeName: StringManager.settingsRoute),
+       const SideMenuModel(
+            icon: Icons.logout,
+            name: 'Log Out',
+            routeName: StringManager.loginRoute),
+  ];
+  
 List<Widget> buildSettingsItems(BuildContext context,List<SideMenuModel> items){
   return items.map((item) {
     bool isLogout = item.routeName == StringManager.loginRoute;

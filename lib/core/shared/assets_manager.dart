@@ -6,6 +6,9 @@ class Assets {
   static const String background = '${imagesPath}background.jpg';
   static const String logoIcon = '${imagesPath}logo_icon.png';
   static const String logoIconWhite = '${imagesPath}logo_icon_white.png';
+  static const String noAccess = '${imagesPath}no_access.png';
+  static const String eg = '${imagesPath}eg.png';
+  static const String us = '${imagesPath}us.png';
 }
 class SVGAssets{
   static const String svgPath = 'assets/images/svg/';

@@ -30,7 +30,7 @@ class SenseMoreApp extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // getIt<BluetoothHelper>().scan(context);
+    getIt<BluetoothHelper>().dummyScan();
     return ScreenUtilInit(
       builder: (context, child) {
       return MaterialApp(

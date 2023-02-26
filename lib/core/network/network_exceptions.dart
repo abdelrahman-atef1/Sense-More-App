@@ -70,16 +70,16 @@ abstract class NetworkExceptions with _$NetworkExceptions {
           errorMessage = error;
         },
         invalidEmail: () {
-          errorMessage = 'البريد الإلكتروني المدخل غير صالح';
+          errorMessage = 'Please enter a valid Email address';
         },
         userDisabled: () {
-          errorMessage = 'هذا الحساب معطل!\nبرجاء التواصل مع الدعم الفني اذا كنت تعتقد ان هناك خطأ ما';
+          errorMessage = 'This account is disabled.';
         },
         userNotFound: () {
-          errorMessage = 'هذا المستخدم غير موجود';
+          errorMessage = 'This user doesn\'t exist';
         },
         wrongPassword: () {
-          errorMessage = 'كلمة المرور غير صالحة';
+          errorMessage = 'Wrong password';
         },
         unableToProcess: () {
           errorMessage = LocaleKeys.unexpected_error_occurred.tr();

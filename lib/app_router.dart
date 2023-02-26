@@ -4,6 +4,7 @@ import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/business_logic/cubit/profile_cubit/profile_cubit.dart';
 import 'package:sense_more/business_logic/cubit/register_cubit/register_cubit.dart';
+import 'package:sense_more/business_logic/cubit/settings_cubit/settings_cubit.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
 import 'package:sense_more/core/shared/string_manager.dart';
 import 'package:sense_more/presentation/screens/forgot_password_page.dart';
@@ -25,16 +26,16 @@ class AppRouter {
 
       case StringManager.loginRoute:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider<LoginCubit>(
-            create: (_) => getIt.get<LoginCubit>()..signOut(),
+          builder: (_) => BlocProvider<LoginCubit>.value(
+            value: getIt.get<LoginCubit>()..signOut(),
             child: LoginScreen(),
           ),
         );
 
       case StringManager.registerRoute:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<RegisterCubit>(),
+            builder: (_) => BlocProvider.value(
+                  value: getIt<RegisterCubit>(),
                   child: const RegisterScreen(),
                 ));
 
@@ -43,16 +44,21 @@ class AppRouter {
 
       case StringManager.homeRoute:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<HomeCubit>(),
-                  child: MainScreen(),
-                ));
+          builder: (_) => BlocProvider.value(
+            value: getIt<HomeCubit>()..initializeHome(),
+            child: MainScreen(),
+          ),
+        );
 
       case StringManager.logRoute:
         return MaterialPageRoute(builder: (_) => const LogScreen());
 
       case StringManager.settingsRoute:
-        return MaterialPageRoute(builder: (_) => const SettingsScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+                  value: getIt<SettingsCubit>(),
+                  child: SettingsScreen(),
+                ));
 
       case StringManager.profileRoute:
         return MaterialPageRoute(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sense_more/core/shared/bluetooth_helper.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
+import 'package:sense_more/core/shared/get_it_helper.dart';
 import 'package:sense_more/core/shared/style_manager.dart';
 import 'package:sense_more/core/shared/values_manager.dart';
 import 'package:sense_more/data/models/user_model.dart';
@@ -82,6 +84,21 @@ class TopSectionHome extends StatelessWidget {
                             ? const TextShimmer()
                             : Text(
                                 user?.jobTitle ?? '-',
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: getRegularStyle(
+                                    color: ColorManager.greyText,
+                                    fontSize: FontSize.s14.sp),
+                              ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                                'Location: ${getIt<BluetoothHelper>().dummyNearestDevice?.name??'Out Range'}',
+                                //user?.jobTitle ?? '-',
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: getRegularStyle(

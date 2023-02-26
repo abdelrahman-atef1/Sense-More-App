@@ -9,6 +9,7 @@ import 'dart:math' as math; // import this
 import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/business_logic/cubit/search_cubit/search_cubit.dart';
+import 'package:sense_more/core/shared/assets_manager.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
@@ -27,7 +28,7 @@ class SearchScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => SearchCubit(),
       child:  Scaffold(
-            body: Column(
+            body:  Column(
               children: [
                 TopSection(
                   height: 120.h,
@@ -39,6 +40,7 @@ class SearchScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                user?.isManager == true? Image.asset(Assets.noAccess):
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0.w),

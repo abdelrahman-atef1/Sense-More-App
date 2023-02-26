@@ -86,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                                     validator: (value) => cubit.emailValidation(value ?? ''),
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: const InputDecoration(
-                                      hintText: 'أدخل بريدك الإلكتروني',
+                                      hintText: 'Enter your email',
                                       prefixIcon:  Icon(Icons.email),
                                     ),
                                   ),
@@ -102,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                                     obscureText: true,
                                     keyboardType: TextInputType.visiblePassword,
                                     decoration: const InputDecoration(
-                                      hintText: 'أدخل كلمة المرور',
+                                      hintText: 'Enter your password',
                                       prefixIcon: Icon(Icons.password),
                                     ),
                                   ),
@@ -194,7 +194,7 @@ class LoginScreen extends StatelessWidget {
                                       }
                                     },
                                     child: Text(
-                                      'تسجيل الدخول',
+                                      'Login',
                                       style: getBoldStyle(
                                           color: ColorManager.white,
                                           fontSize: FontSize.s14),
@@ -211,20 +211,9 @@ class LoginScreen extends StatelessWidget {
                         visible: kDebugMode,
                         child: InkWell(
                           onTap: () => Navigator.of(context)
-                              .pushNamed(StringManager.forgotPasswordRoute),
-                          child: Text(
-                            'نسيت كلمة المرور؟',
-                            style: getLinkStyle(),
-                          ),
-                        ),
-                      ),
-                      Visibility(
-                        visible: kDebugMode,
-                        child: InkWell(
-                          onTap: () => Navigator.of(context)
                               .pushNamed(StringManager.registerRoute),
                           child: Text(
-                            'ليس لديك حساب؟ قم بإنشاء حساب جديد.',
+                            'Don\'t have an account? register now.',
                             style: getLinkStyle(fontSize: FontSize.s14),
                           ),
                         ),

@@ -1,15 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/business_logic/cubit/profile_cubit/profile_cubit.dart';
 import 'package:sense_more/core/shared/Utilities/validation.dart';
-import 'package:sense_more/core/shared/assets_manager.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
@@ -41,35 +36,18 @@ class ProfileScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(height: 20.h),
-                      InkWell(
-                        child: Stack(
-                          alignment: AlignmentDirectional.topStart,
-                          children: [
-                            Container(
-                              width: 60.r,
-                              height: 60.r,
-                              decoration: const BoxDecoration(
-                                  shape: BoxShape.circle, color: Colors.white),
-                              child: ClipOval(
-                                child: cubit.pickedFile?.path != null
-                                    ? Image.file(cubit.pickedFile!)
-                                    : CachedNetworkImage(
-                                        imageUrl:
-                                            cubit.firebaseUser?.photoURL ?? '',
-                                        errorWidget: (context, url, error) =>
-                                            SvgPicture.asset(SVGAssets.userCircle,
-                                                width: 60.r),
-                                      ),
-                              ),
-                            ),
-                            const Icon(
-                              Icons.add_circle,
-                              color: ColorManager.white,
-                              shadows: [
-                                Shadow(color: ColorManager.primary, blurRadius: 5)
-                              ],
-                            )
-                          ],
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: GestureDetector(
+                          onTap: ()=> Navigator.pop(context),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children:[
+                               const Icon(Icons.arrow_back,color: ColorManager.black),
+                               const SizedBox(width: 5),
+                               Text('back',style: getBoldStyle(color: ColorManager.black,fontSize: FontSize.s18),)
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20.h),
@@ -88,8 +66,8 @@ class ProfileScreen extends StatelessWidget {
                                       nameValidation(value ?? ''),
                                   keyboardType: TextInputType.name,
                                   decoration: const InputDecoration(
-                                    label: Text('الاسم'),
-                                    hintText: 'أدخل اسمك كاملاً',
+                                    label: Text('Name'),
+                                    hintText:'Your Full Name',
                                   ),
                                 ),
                               ),
@@ -108,8 +86,8 @@ class ProfileScreen extends StatelessWidget {
                                       emailValidation(value ?? ''),
                                   keyboardType: TextInputType.emailAddress,
                                   decoration:const InputDecoration(
-                                    label:  Text('البريد الإلكتروني'),
-                                    hintText: 'أدخل بريدك الإلكتروني',
+                                    label:  Text('Email'),
+                                    hintText: 'Your Email',
                                   ),
                                 ),
                               ),
@@ -135,32 +113,6 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       ),
                       SizedBox(height: 15.h),
-                      Visibility(
-                        visible: kDebugMode,
-                        child: Row(
-                          children: [
-                            state.maybeWhen(
-                              loading: () => const Expanded(
-                                  child: Center(
-                                      child: SpinKitThreeBounce(
-                                          color: ColorManager.primary, size: 25))),
-                              orElse: () => Expanded(
-                                child: FilledButton(
-                                  onPressed: () async {
-                                    await cubit.updateData();
-                                  },
-                                  child: Text(
-                                    'حفظ',
-                                    style: getBoldStyle(
-                                        color: ColorManager.white,
-                                        fontSize: FontSize.s14),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 )

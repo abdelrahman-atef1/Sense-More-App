@@ -22,6 +22,8 @@ mixin _$HomeState {
     required TResult Function() loading,
     required TResult Function(User user) success,
     required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
     required TResult Function(Object error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +33,7 @@ mixin _$HomeState {
     TResult? Function()? loading,
     TResult? Function(User user)? success,
     TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult? Function(Object error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +43,7 @@ mixin _$HomeState {
     TResult Function()? loading,
     TResult Function(User user)? success,
     TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) =>
@@ -50,6 +54,7 @@ mixin _$HomeState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +64,7 @@ mixin _$HomeState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +74,7 @@ mixin _$HomeState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -132,6 +139,8 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(User user) success,
     required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
     required TResult Function(Object error) error,
   }) {
     return initial();
@@ -144,6 +153,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function(User user)? success,
     TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult? Function(Object error)? error,
   }) {
     return initial?.call();
@@ -156,6 +166,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(User user)? success,
     TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -172,6 +183,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -184,6 +196,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -196,6 +209,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -251,6 +265,8 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(User user) success,
     required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
     required TResult Function(Object error) error,
   }) {
     return loading();
@@ -263,6 +279,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? loading,
     TResult? Function(User user)? success,
     TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult? Function(Object error)? error,
   }) {
     return loading?.call();
@@ -275,6 +292,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(User user)? success,
     TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -291,6 +309,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -303,6 +322,7 @@ class _$_Loading implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -315,6 +335,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -396,6 +417,8 @@ class _$_Success implements _Success {
     required TResult Function() loading,
     required TResult Function(User user) success,
     required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
     required TResult Function(Object error) error,
   }) {
     return success(user);
@@ -408,6 +431,7 @@ class _$_Success implements _Success {
     TResult? Function()? loading,
     TResult? Function(User user)? success,
     TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult? Function(Object error)? error,
   }) {
     return success?.call(user);
@@ -420,6 +444,7 @@ class _$_Success implements _Success {
     TResult Function()? loading,
     TResult Function(User user)? success,
     TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -436,6 +461,7 @@ class _$_Success implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
     required TResult Function(_Error value) error,
   }) {
     return success(this);
@@ -448,6 +474,7 @@ class _$_Success implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
@@ -460,6 +487,7 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -548,6 +576,8 @@ class _$_BluetoothSearch implements _BluetoothSearch {
     required TResult Function() loading,
     required TResult Function(User user) success,
     required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
     required TResult Function(Object error) error,
   }) {
     return bluetoothSearch(nearestDevice);
@@ -560,6 +590,7 @@ class _$_BluetoothSearch implements _BluetoothSearch {
     TResult? Function()? loading,
     TResult? Function(User user)? success,
     TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult? Function(Object error)? error,
   }) {
     return bluetoothSearch?.call(nearestDevice);
@@ -572,6 +603,7 @@ class _$_BluetoothSearch implements _BluetoothSearch {
     TResult Function()? loading,
     TResult Function(User user)? success,
     TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -588,6 +620,7 @@ class _$_BluetoothSearch implements _BluetoothSearch {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
     required TResult Function(_Error value) error,
   }) {
     return bluetoothSearch(this);
@@ -600,6 +633,7 @@ class _$_BluetoothSearch implements _BluetoothSearch {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult? Function(_Error value)? error,
   }) {
     return bluetoothSearch?.call(this);
@@ -612,6 +646,7 @@ class _$_BluetoothSearch implements _BluetoothSearch {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -629,6 +664,167 @@ abstract class _BluetoothSearch implements HomeState {
   ScanResult get nearestDevice;
   @JsonKey(ignore: true)
   _$$_BluetoothSearchCopyWith<_$_BluetoothSearch> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_BluetoothDummySearchCopyWith<$Res> {
+  factory _$$_BluetoothDummySearchCopyWith(_$_BluetoothDummySearch value,
+          $Res Function(_$_BluetoothDummySearch) then) =
+      __$$_BluetoothDummySearchCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ScanResultModel nearestDevice});
+}
+
+/// @nodoc
+class __$$_BluetoothDummySearchCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_BluetoothDummySearch>
+    implements _$$_BluetoothDummySearchCopyWith<$Res> {
+  __$$_BluetoothDummySearchCopyWithImpl(_$_BluetoothDummySearch _value,
+      $Res Function(_$_BluetoothDummySearch) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nearestDevice = null,
+  }) {
+    return _then(_$_BluetoothDummySearch(
+      null == nearestDevice
+          ? _value.nearestDevice
+          : nearestDevice // ignore: cast_nullable_to_non_nullable
+              as ScanResultModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BluetoothDummySearch implements _BluetoothDummySearch {
+  const _$_BluetoothDummySearch(this.nearestDevice);
+
+  @override
+  final ScanResultModel nearestDevice;
+
+  @override
+  String toString() {
+    return 'HomeState.bluetoothDummySearch(nearestDevice: $nearestDevice)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BluetoothDummySearch &&
+            (identical(other.nearestDevice, nearestDevice) ||
+                other.nearestDevice == nearestDevice));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nearestDevice);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BluetoothDummySearchCopyWith<_$_BluetoothDummySearch> get copyWith =>
+      __$$_BluetoothDummySearchCopyWithImpl<_$_BluetoothDummySearch>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User user) success,
+    required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
+    required TResult Function(Object error) error,
+  }) {
+    return bluetoothDummySearch(nearestDevice);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? success,
+    TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
+    TResult? Function(Object error)? error,
+  }) {
+    return bluetoothDummySearch?.call(nearestDevice);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User user)? success,
+    TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) {
+    if (bluetoothDummySearch != null) {
+      return bluetoothDummySearch(nearestDevice);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
+    required TResult Function(_Error value) error,
+  }) {
+    return bluetoothDummySearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
+    TResult? Function(_Error value)? error,
+  }) {
+    return bluetoothDummySearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (bluetoothDummySearch != null) {
+      return bluetoothDummySearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BluetoothDummySearch implements HomeState {
+  const factory _BluetoothDummySearch(final ScanResultModel nearestDevice) =
+      _$_BluetoothDummySearch;
+
+  ScanResultModel get nearestDevice;
+  @JsonKey(ignore: true)
+  _$$_BluetoothDummySearchCopyWith<_$_BluetoothDummySearch> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -696,6 +892,8 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(User user) success,
     required TResult Function(ScanResult nearestDevice) bluetoothSearch,
+    required TResult Function(ScanResultModel nearestDevice)
+        bluetoothDummySearch,
     required TResult Function(Object error) error,
   }) {
     return error(this.error);
@@ -708,6 +906,7 @@ class _$_Error implements _Error {
     TResult? Function()? loading,
     TResult? Function(User user)? success,
     TResult? Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult? Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult? Function(Object error)? error,
   }) {
     return error?.call(this.error);
@@ -720,6 +919,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(User user)? success,
     TResult Function(ScanResult nearestDevice)? bluetoothSearch,
+    TResult Function(ScanResultModel nearestDevice)? bluetoothDummySearch,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
@@ -736,6 +936,7 @@ class _$_Error implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_BluetoothSearch value) bluetoothSearch,
+    required TResult Function(_BluetoothDummySearch value) bluetoothDummySearch,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -748,6 +949,7 @@ class _$_Error implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult? Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -760,6 +962,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_BluetoothSearch value)? bluetoothSearch,
+    TResult Function(_BluetoothDummySearch value)? bluetoothDummySearch,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

@@ -1,10 +1,13 @@
+import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
+import 'package:sense_more/data/models/scan_result_model.dart';
 import 'package:system_settings/system_settings.dart';
 class BluetoothHelper{
   late FlutterBlue flutterBlue;
@@ -29,6 +32,7 @@ class BluetoothHelper{
   // }
   List<ScanResult> scanResults = [];
   ScanResult? nearestDevice;
+  ScanResultModel? dummyNearestDevice;
   scan(BuildContext context) async{
     initialize();
     // flutterBlue.setLogLevel(LogLevel.debug);
@@ -58,6 +62,49 @@ class BluetoothHelper{
     });
   }
 
+  dummyScan(){
+    Timer.periodic(const Duration(seconds: 10), (timer) {
+      final _random = Random();
+      var randomElement = dummyScanResults[_random.nextInt(dummyScanResults.length)];
+      dummyNearestDevice = randomElement;
+      getIt<HomeCubit>().emit(HomeState.bluetoothDummySearch(dummyNearestDevice!));
+    });
+  }
+
+  List<ScanResultModel> dummyScanResults = [
+    ScanResultModel(name: 'Main Hall',rssi: -10),
+    ScanResultModel(name: 'Main Hall',rssi: -30),
+    ScanResultModel(name: 'Main Hall',rssi: -50),
+    ScanResultModel(name: 'HR Department',rssi: -10),
+    ScanResultModel(name: 'HR Department',rssi: -23),
+    ScanResultModel(name: 'HR Department',rssi: -30),
+    ScanResultModel(name: 'HR Department',rssi: -49),
+    ScanResultModel(name: 'HR Department',rssi: -60),
+    ScanResultModel(name: 'Manager Office',rssi: -80),
+    ScanResultModel(name: 'Manager Office',rssi: -63),
+    ScanResultModel(name: 'Manager Office',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -10),
+    ScanResultModel(name: 'Cafeteria',rssi: -20),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Cafeteria',rssi: -60),
+    ScanResultModel(name: 'Out Range',rssi: -80),
+    ScanResultModel(name: 'IT Department',rssi: -80),
+    ScanResultModel(name: 'Marketing Department',rssi: -80),
+    ScanResultModel(name: 'Finance Department',rssi: -80),
+    ScanResultModel(name: 'Sales Department',rssi: -80),
+    ScanResultModel(name: 'General Management',rssi: -80),
+    ScanResultModel(name: 'Main Hall',rssi: -80),
+    ScanResultModel(name: 'Main Hall',rssi: -80),
+    ScanResultModel(name: 'Main Hall',rssi: -80),
+  ];
   void populateScanResults(List<ScanResult> results){
         // do something with scan results
           debugPrint('scanResults callback------------');

@@ -10,6 +10,7 @@ import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
 import 'package:sense_more/core/shared/string_manager.dart';
 import 'package:sense_more/data/models/announcement_model.dart';
+import 'package:sense_more/data/models/scan_result_model.dart';
 import 'package:sense_more/data/models/side_menu_model.dart';
 import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/data/repository/home_repository.dart';
@@ -47,20 +48,7 @@ class HomeCubit extends Cubit<HomeState> {
       throw Exception("Unknown Error\n$e");
     }
   }
-  List<SideMenuModel> menuItems = [
-       const SideMenuModel(
-            icon: CupertinoIcons.profile_circled,
-            name: 'Edit Profile',
-            routeName: StringManager.profileRoute),
-       const SideMenuModel(
-            icon: CupertinoIcons.settings,
-            name: 'Settings',
-            routeName: StringManager.settingsRoute),
-       const SideMenuModel(
-            icon: Icons.logout,
-            name: 'Log Out',
-            routeName: StringManager.loginRoute),
-  ];
+
   String formattedDate = DateFormat.yM().format(DateTime.now());
   List<AnnouncementsModel> allAnnouncements = [];
   Future<List<AnnouncementsModel>> getAnnouncements() async{
@@ -71,7 +59,7 @@ class HomeCubit extends Cubit<HomeState> {
       date: formattedDate,
       announcement: 'a notice appearing in a newspaper or public place and announcing something such as a birth, death, or marriage');
     try {
-      allAnnouncements = List.generate(10, (index) => placeholderAnnouncement);
+      allAnnouncements = List.generate(1, (index) => placeholderAnnouncement);
       // var documentSnapshot = await firebaseFirestore.collection('announcments')
       //   .doc(fromattedDate).get();
       // if(documentSnapshot.exists && documentSnapshot.data() != null){

@@ -15,13 +15,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeCubit cubit = getIt();
-    return BlocProvider<HomeCubit>(
-      create:(_)=> getIt<HomeCubit>()..initializeHome(),
-      child: BlocBuilder<HomeCubit, HomeState>(
+    return  BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
+          final HomeCubit cubit = getIt();
           state.whenOrNull(
-              bluetoothSearch: (nearestDevice) => debugPrint('NearestDevice: ${nearestDevice.device.name}'));
+              bluetoothDummySearch: (nearestDevice) => debugPrint('NearestDevice: ${nearestDevice.name}'));
           return Scaffold(
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -93,9 +91,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           );
-        },
-      ),
-    );
+  });
   }
 }
 

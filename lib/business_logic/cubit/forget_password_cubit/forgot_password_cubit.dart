@@ -12,14 +12,14 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
   ForgotPasswordCubit() : super(const ForgotPasswordState.initial());
   
   String? emailValidation(String email){
-    if(!REGEXCheck.isEmail(email)) return 'برجاء إدخال بريد إلكتروني صالح';
+    if(!REGEXCheck.isEmail(email)) return 'Please enter a valid Email address';
     return null;
   }
   resetPassword(String email,BuildContext context)async{
-    if(emailValidation(email) != null) return DefaultToast.showMyToast('برجاء إدخال بريد إلكتروني صالح');
+    if(emailValidation(email) != null) return DefaultToast.showMyToast('Please enter a valid Email address');
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      DefaultToast.showMyToast('تم الإرسال بنجاح\nبرجاء التحقق من بريدك الإلكتروني');
+      // DefaultToast.showMyToast('تم الإرسال بنجاح\nبرجاء التحقق من بريدك الإلكتروني');
       Navigator.of(context).pop();
     } on FirebaseAuthException catch (e) {
       DefaultToast.showMyToast(e.message.toString());
