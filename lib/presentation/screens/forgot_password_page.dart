@@ -35,12 +35,6 @@ class ForgotPasswordPage extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Expanded(child: SvgPicture.asset(SVGAssets.wave,fit: BoxFit.cover,height: 250.h)),
-                      ],
-                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Column(

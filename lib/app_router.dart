@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
-import 'package:sense_more/business_logic/cubit/profile_cubit/profile_cubit.dart';
 import 'package:sense_more/business_logic/cubit/register_cubit/register_cubit.dart';
 import 'package:sense_more/business_logic/cubit/settings_cubit/settings_cubit.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';

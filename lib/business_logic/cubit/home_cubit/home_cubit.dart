@@ -1,17 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
-import 'package:sense_more/core/shared/string_manager.dart';
 import 'package:sense_more/data/models/announcement_model.dart';
 import 'package:sense_more/data/models/scan_result_model.dart';
-import 'package:sense_more/data/models/side_menu_model.dart';
 import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/data/repository/home_repository.dart';
 
@@ -60,13 +56,6 @@ class HomeCubit extends Cubit<HomeState> {
       announcement: 'a notice appearing in a newspaper or public place and announcing something such as a birth, death, or marriage');
     try {
       allAnnouncements = List.generate(1, (index) => placeholderAnnouncement);
-      // var documentSnapshot = await firebaseFirestore.collection('announcments')
-      //   .doc(fromattedDate).get();
-      // if(documentSnapshot.exists && documentSnapshot.data() != null){
-      //   var data = documentSnapshot.data();
-      //   List<AnnouncmentModel> announcments = List.generate(data?.length??0, (index) => AnnouncmentModel.fromJson(data![index]));
-      //   return allAnnouncments;
-      // }
       return [];
     } catch (e){
       throw Exception("Unknown Error\n$e");

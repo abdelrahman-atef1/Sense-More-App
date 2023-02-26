@@ -1,12 +1,8 @@
-import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sense_more/core/translations/locale_keys.g.dart';
-import 'network_base_model.dart';
-import 'network_error_model.dart';
 
 part 'network_exceptions.freezed.dart';
 

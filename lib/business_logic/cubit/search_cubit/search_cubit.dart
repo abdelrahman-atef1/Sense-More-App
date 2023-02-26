@@ -6,7 +6,6 @@ import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
 import 'package:sense_more/core/shared/style_manager.dart';
 import 'package:sense_more/core/shared/values_manager.dart';
-import 'package:sense_more/presentation/screens/search_screen.dart';
 
 part 'search_state.dart';
 part 'search_cubit.freezed.dart';
@@ -15,10 +14,6 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit() : super(const SearchState.initial());
 
 
-  // changeSearchTap(bool isFloorSearch) {
-  //   this.isFloorSearch = isFloorSearch;
-  //   emit(SearchState.changeSearchFilter(isFloorSearch));
-  // }
   int? selectedFloorNumber;
   selectFilter(BuildContext context,int number){
     if(selectedFloorNumber == number){

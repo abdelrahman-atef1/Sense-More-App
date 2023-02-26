@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/core/shared/color_manager.dart';
 import 'package:sense_more/core/shared/font_manager.dart';
@@ -64,8 +63,8 @@ class StatisticsScreen extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Positioned.fill(
-                        child: const CircularProgressIndicator(
+                      const Positioned.fill(
+                        child: CircularProgressIndicator(
                           value: 0.8,
                           backgroundColor: ColorManager.white,
                           strokeWidth: 12,

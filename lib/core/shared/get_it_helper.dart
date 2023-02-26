@@ -6,7 +6,6 @@ import 'package:sense_more/business_logic/cubit/register_cubit/register_cubit.da
 import 'package:sense_more/business_logic/cubit/search_cubit/search_cubit.dart';
 import 'package:sense_more/business_logic/cubit/settings_cubit/settings_cubit.dart';
 import 'package:sense_more/core/shared/bluetooth_helper.dart';
-import 'package:sense_more/data/models/user_model.dart';
 import 'package:sense_more/data/repository/home_repository.dart';
 import 'package:sense_more/data/repository/login_repositorey.dart';
 

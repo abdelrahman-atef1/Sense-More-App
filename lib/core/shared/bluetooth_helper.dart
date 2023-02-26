@@ -1,9 +1,10 @@
+// ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
+
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/core/shared/get_it_helper.dart';
@@ -17,25 +18,11 @@ class BluetoothHelper{
     return flutterBlue;
   }
 
-  // void scanForDevices() async {
-  //   flutterBlue.scan(
-  //     scanMode: ScanMode.opportunistic,
-  //     timeout: const Duration(seconds: 30)).listen((scanResult) async {
-  //     debugPrint('scan subscription callback------------');
-  //     if (scanResult.device.name == "your_device_name") {
-  //       debugPrint('${scanResult.device.name} found! rssi: ${scanResult.rssi}');
-  //       debugPrint("found device");
-  //       //Assigning bluetooth device
-  //       //After that we stop the scanning for device
-  //     }
-  //   });
-  // }
   List<ScanResult> scanResults = [];
   ScanResult? nearestDevice;
   ScanResultModel? dummyNearestDevice;
   scan(BuildContext context) async{
     initialize();
-    // flutterBlue.setLogLevel(LogLevel.debug);
     flutterBlue.isOn.asStream().listen((isOn) async{ 
       if(isOn == false){
         await _showMyDialog(context);

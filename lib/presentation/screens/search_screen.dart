@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'dart:math' as math; // import this
+import 'dart:math' as math;
 
-import 'package:sense_more/business_logic/cubit/home_cubit/home_cubit.dart';
 import 'package:sense_more/business_logic/cubit/login_cubit/login_cubit.dart';
 import 'package:sense_more/business_logic/cubit/search_cubit/search_cubit.dart';
 import 'package:sense_more/core/shared/assets_manager.dart';
@@ -88,23 +85,6 @@ class SearchScreen extends StatelessWidget {
                             return Expanded(
                               child: Column(
                                 children: [
-                                  //Tabs
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                                  //   children: [
-                                  //     TabItem(
-                                  //       isSelected: !cubit.isFloorSearch,
-                                  //       title: 'Search',
-                                  //       onTap: () => cubit.changeSearchTap(false),
-                                  //     ),
-                                  //     TabItem(
-                                  //       isSelected: cubit.isFloorSearch,
-                                  //       title: 'Select Floor',
-                                  //       onTap: () => cubit.changeSearchTap(true),
-                                  //     ),
-                                  //   ],
-                                  // ),
                                   SizedBox(height: 20.h),
                                   Expanded(
                                     child: Column(

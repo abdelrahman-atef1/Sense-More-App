@@ -42,7 +42,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(const RegisterState.loadingEmail());
       UserCredential userCredentials = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       //Upload user image to storage
-      var ref = FirebaseStorage.instance.ref(userCredentials.user?.uid??email??'unkown');
+      var ref = FirebaseStorage.instance.ref(userCredentials.user?.uid??email);
       await ref.putFile(pickedImage!);
       var uploadedImageUrl = await ref.getDownloadURL();
       await userCredentials.user?.updatePhotoURL(uploadedImageUrl);
