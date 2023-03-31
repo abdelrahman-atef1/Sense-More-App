@@ -23,6 +23,8 @@ mixin _$SearchState {
     required TResult Function() success,
     required TResult Function() error,
     required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$SearchState {
     TResult? Function()? success,
     TResult? Function()? error,
     TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$SearchState {
     TResult Function()? success,
     TResult Function()? error,
     TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,10 @@ mixin _$SearchState {
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
     required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +70,8 @@ mixin _$SearchState {
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
     TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +81,8 @@ mixin _$SearchState {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +148,8 @@ class _$_Initial implements _Initial {
     required TResult Function() success,
     required TResult Function() error,
     required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
   }) {
     return initial();
   }
@@ -146,6 +162,8 @@ class _$_Initial implements _Initial {
     TResult? Function()? success,
     TResult? Function()? error,
     TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
   }) {
     return initial?.call();
   }
@@ -158,6 +176,8 @@ class _$_Initial implements _Initial {
     TResult Function()? success,
     TResult Function()? error,
     TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -174,6 +194,10 @@ class _$_Initial implements _Initial {
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
     required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
   }) {
     return initial(this);
   }
@@ -186,6 +210,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
     TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
   }) {
     return initial?.call(this);
   }
@@ -198,6 +224,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -253,6 +281,8 @@ class _$_Loading implements _Loading {
     required TResult Function() success,
     required TResult Function() error,
     required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
   }) {
     return loading();
   }
@@ -265,6 +295,8 @@ class _$_Loading implements _Loading {
     TResult? Function()? success,
     TResult? Function()? error,
     TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
   }) {
     return loading?.call();
   }
@@ -277,6 +309,8 @@ class _$_Loading implements _Loading {
     TResult Function()? success,
     TResult Function()? error,
     TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -293,6 +327,10 @@ class _$_Loading implements _Loading {
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
     required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
   }) {
     return loading(this);
   }
@@ -305,6 +343,8 @@ class _$_Loading implements _Loading {
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
     TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
   }) {
     return loading?.call(this);
   }
@@ -317,6 +357,8 @@ class _$_Loading implements _Loading {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -372,6 +414,8 @@ class _$_Success implements _Success {
     required TResult Function() success,
     required TResult Function() error,
     required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
   }) {
     return success();
   }
@@ -384,6 +428,8 @@ class _$_Success implements _Success {
     TResult? Function()? success,
     TResult? Function()? error,
     TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
   }) {
     return success?.call();
   }
@@ -396,6 +442,8 @@ class _$_Success implements _Success {
     TResult Function()? success,
     TResult Function()? error,
     TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -412,6 +460,10 @@ class _$_Success implements _Success {
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
     required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
   }) {
     return success(this);
   }
@@ -424,6 +476,8 @@ class _$_Success implements _Success {
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
     TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
   }) {
     return success?.call(this);
   }
@@ -436,6 +490,8 @@ class _$_Success implements _Success {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -490,6 +546,8 @@ class _$_Error implements _Error {
     required TResult Function() success,
     required TResult Function() error,
     required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
   }) {
     return error();
   }
@@ -502,6 +560,8 @@ class _$_Error implements _Error {
     TResult? Function()? success,
     TResult? Function()? error,
     TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
   }) {
     return error?.call();
   }
@@ -514,6 +574,8 @@ class _$_Error implements _Error {
     TResult Function()? success,
     TResult Function()? error,
     TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -530,6 +592,10 @@ class _$_Error implements _Error {
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
     required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
   }) {
     return error(this);
   }
@@ -542,6 +608,8 @@ class _$_Error implements _Error {
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
     TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
   }) {
     return error?.call(this);
   }
@@ -554,6 +622,8 @@ class _$_Error implements _Error {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -638,6 +708,8 @@ class _$_ChangeSearchFilter implements _ChangeSearchFilter {
     required TResult Function() success,
     required TResult Function() error,
     required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
   }) {
     return changeSearchFilter(selectedFloorNumber);
   }
@@ -650,6 +722,8 @@ class _$_ChangeSearchFilter implements _ChangeSearchFilter {
     TResult? Function()? success,
     TResult? Function()? error,
     TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
   }) {
     return changeSearchFilter?.call(selectedFloorNumber);
   }
@@ -662,6 +736,8 @@ class _$_ChangeSearchFilter implements _ChangeSearchFilter {
     TResult Function()? success,
     TResult Function()? error,
     TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (changeSearchFilter != null) {
@@ -678,6 +754,10 @@ class _$_ChangeSearchFilter implements _ChangeSearchFilter {
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
     required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
   }) {
     return changeSearchFilter(this);
   }
@@ -690,6 +770,8 @@ class _$_ChangeSearchFilter implements _ChangeSearchFilter {
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
     TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
   }) {
     return changeSearchFilter?.call(this);
   }
@@ -702,6 +784,8 @@ class _$_ChangeSearchFilter implements _ChangeSearchFilter {
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
     required TResult orElse(),
   }) {
     if (changeSearchFilter != null) {
@@ -719,4 +803,352 @@ abstract class _ChangeSearchFilter implements SearchState {
   @JsonKey(ignore: true)
   _$$_ChangeSearchFilterCopyWith<_$_ChangeSearchFilter> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetSearchFilterSuccessCopyWith<$Res> {
+  factory _$$_GetSearchFilterSuccessCopyWith(_$_GetSearchFilterSuccess value,
+          $Res Function(_$_GetSearchFilterSuccess) then) =
+      __$$_GetSearchFilterSuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<RoomModel> rooms});
+}
+
+/// @nodoc
+class __$$_GetSearchFilterSuccessCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$_GetSearchFilterSuccess>
+    implements _$$_GetSearchFilterSuccessCopyWith<$Res> {
+  __$$_GetSearchFilterSuccessCopyWithImpl(_$_GetSearchFilterSuccess _value,
+      $Res Function(_$_GetSearchFilterSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rooms = null,
+  }) {
+    return _then(_$_GetSearchFilterSuccess(
+      null == rooms
+          ? _value._rooms
+          : rooms // ignore: cast_nullable_to_non_nullable
+              as List<RoomModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetSearchFilterSuccess implements _GetSearchFilterSuccess {
+  const _$_GetSearchFilterSuccess(final List<RoomModel> rooms) : _rooms = rooms;
+
+  final List<RoomModel> _rooms;
+  @override
+  List<RoomModel> get rooms {
+    if (_rooms is EqualUnmodifiableListView) return _rooms;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_rooms);
+  }
+
+  @override
+  String toString() {
+    return 'SearchState.getSearchFilterSuccess(rooms: $rooms)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetSearchFilterSuccess &&
+            const DeepCollectionEquality().equals(other._rooms, _rooms));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_rooms));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetSearchFilterSuccessCopyWith<_$_GetSearchFilterSuccess> get copyWith =>
+      __$$_GetSearchFilterSuccessCopyWithImpl<_$_GetSearchFilterSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() error,
+    required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
+  }) {
+    return getSearchFilterSuccess(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? error,
+    TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
+  }) {
+    return getSearchFilterSuccess?.call(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? error,
+    TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
+    required TResult orElse(),
+  }) {
+    if (getSearchFilterSuccess != null) {
+      return getSearchFilterSuccess(rooms);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
+  }) {
+    return getSearchFilterSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
+  }) {
+    return getSearchFilterSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
+    required TResult orElse(),
+  }) {
+    if (getSearchFilterSuccess != null) {
+      return getSearchFilterSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetSearchFilterSuccess implements SearchState {
+  const factory _GetSearchFilterSuccess(final List<RoomModel> rooms) =
+      _$_GetSearchFilterSuccess;
+
+  List<RoomModel> get rooms;
+  @JsonKey(ignore: true)
+  _$$_GetSearchFilterSuccessCopyWith<_$_GetSearchFilterSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetSearchResultsSuccessCopyWith<$Res> {
+  factory _$$_GetSearchResultsSuccessCopyWith(_$_GetSearchResultsSuccess value,
+          $Res Function(_$_GetSearchResultsSuccess) then) =
+      __$$_GetSearchResultsSuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<UserModel> rooms});
+}
+
+/// @nodoc
+class __$$_GetSearchResultsSuccessCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$_GetSearchResultsSuccess>
+    implements _$$_GetSearchResultsSuccessCopyWith<$Res> {
+  __$$_GetSearchResultsSuccessCopyWithImpl(_$_GetSearchResultsSuccess _value,
+      $Res Function(_$_GetSearchResultsSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rooms = null,
+  }) {
+    return _then(_$_GetSearchResultsSuccess(
+      null == rooms
+          ? _value._rooms
+          : rooms // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetSearchResultsSuccess implements _GetSearchResultsSuccess {
+  const _$_GetSearchResultsSuccess(final List<UserModel> rooms)
+      : _rooms = rooms;
+
+  final List<UserModel> _rooms;
+  @override
+  List<UserModel> get rooms {
+    if (_rooms is EqualUnmodifiableListView) return _rooms;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_rooms);
+  }
+
+  @override
+  String toString() {
+    return 'SearchState.getSearchResultsSuccess(rooms: $rooms)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetSearchResultsSuccess &&
+            const DeepCollectionEquality().equals(other._rooms, _rooms));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_rooms));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetSearchResultsSuccessCopyWith<_$_GetSearchResultsSuccess>
+      get copyWith =>
+          __$$_GetSearchResultsSuccessCopyWithImpl<_$_GetSearchResultsSuccess>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() error,
+    required TResult Function(int? selectedFloorNumber) changeSearchFilter,
+    required TResult Function(List<RoomModel> rooms) getSearchFilterSuccess,
+    required TResult Function(List<UserModel> rooms) getSearchResultsSuccess,
+  }) {
+    return getSearchResultsSuccess(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? error,
+    TResult? Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult? Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult? Function(List<UserModel> rooms)? getSearchResultsSuccess,
+  }) {
+    return getSearchResultsSuccess?.call(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? error,
+    TResult Function(int? selectedFloorNumber)? changeSearchFilter,
+    TResult Function(List<RoomModel> rooms)? getSearchFilterSuccess,
+    TResult Function(List<UserModel> rooms)? getSearchResultsSuccess,
+    required TResult orElse(),
+  }) {
+    if (getSearchResultsSuccess != null) {
+      return getSearchResultsSuccess(rooms);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ChangeSearchFilter value) changeSearchFilter,
+    required TResult Function(_GetSearchFilterSuccess value)
+        getSearchFilterSuccess,
+    required TResult Function(_GetSearchResultsSuccess value)
+        getSearchResultsSuccess,
+  }) {
+    return getSearchResultsSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult? Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult? Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
+  }) {
+    return getSearchResultsSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    TResult Function(_ChangeSearchFilter value)? changeSearchFilter,
+    TResult Function(_GetSearchFilterSuccess value)? getSearchFilterSuccess,
+    TResult Function(_GetSearchResultsSuccess value)? getSearchResultsSuccess,
+    required TResult orElse(),
+  }) {
+    if (getSearchResultsSuccess != null) {
+      return getSearchResultsSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetSearchResultsSuccess implements SearchState {
+  const factory _GetSearchResultsSuccess(final List<UserModel> rooms) =
+      _$_GetSearchResultsSuccess;
+
+  List<UserModel> get rooms;
+  @JsonKey(ignore: true)
+  _$$_GetSearchResultsSuccessCopyWith<_$_GetSearchResultsSuccess>
+      get copyWith => throw _privateConstructorUsedError;
 }

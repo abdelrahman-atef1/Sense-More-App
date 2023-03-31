@@ -8,6 +8,7 @@ import 'package:sense_more/business_logic/cubit/settings_cubit/settings_cubit.da
 import 'package:sense_more/core/shared/bluetooth_helper.dart';
 import 'package:sense_more/data/repository/home_repository.dart';
 import 'package:sense_more/data/repository/login_repositorey.dart';
+import 'package:sense_more/data/repository/search_repository.dart';
 
 final getIt = GetIt.instance;
 
@@ -24,8 +25,10 @@ void setupGetIt() {
   getIt.registerLazySingleton<HomeCubit>(() => HomeCubit(getIt<HomeRepository>()));
 
   getIt.registerLazySingleton<ProfileCubit>(() => ProfileCubit());
+  
+  getIt.registerLazySingleton<SearchRepository>(() => SearchRepository());
 
-  getIt.registerLazySingleton<SearchCubit>(() => SearchCubit());
+  getIt.registerLazySingleton<SearchCubit>(() => SearchCubit(getIt<SearchRepository>())..getAllRooms());
 
   getIt.registerLazySingleton<SettingsCubit>(() => SettingsCubit());
 

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:sense_more/data/models/room_model.dart';
 
 part 'user_model.g.dart';
 
@@ -13,12 +14,17 @@ class UserModel {
   final bool? isManager;
   @JsonKey(name: 'job_title')
   final String? jobTitle;
+  @JsonKey(name: 'room_id')
+  final int? roomID;
+  RoomModel? room;
   UserModel({
     this.fullName,
     this.email,
     this.profileImage,
     this.isManager,
     this.jobTitle,
+    this.roomID,
+    this.room,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

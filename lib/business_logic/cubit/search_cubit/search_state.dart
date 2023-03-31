@@ -7,4 +7,6 @@ class SearchState with _$SearchState {
   const factory SearchState.success() = _Success;
   const factory SearchState.error() = _Error;
   const factory SearchState.changeSearchFilter(int? selectedFloorNumber) = _ChangeSearchFilter;
+  const factory SearchState.getSearchFilterSuccess(List<RoomModel> rooms) = _GetSearchFilterSuccess;
+  const factory SearchState.getSearchResultsSuccess(List<UserModel> rooms) = _GetSearchResultsSuccess;
 }

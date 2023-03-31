@@ -21,9 +21,9 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var user = getIt<LoginCubit>().loggedInUser;
-    // var cubit = getIt<SearchCubit>();
+    var cubit = getIt<SearchCubit>();
     return BlocProvider(
-      create: (context) => SearchCubit(),
+      create: (context) => cubit,
       child:  Scaffold(
             body:  Column(
               children: [
@@ -96,6 +96,8 @@ class SearchScreen extends StatelessWidget {
                                             boxShadow: const [BoxShadow(color: Colors.black12,offset: Offset(0, 4),blurRadius: 7)]
                                           ),
                                           child: TextField(
+                                            controller: cubit.searchController,
+                                            onEditingComplete:()=> cubit.searchName(),
                                             decoration: InputDecoration(
                                               hintText: 'E.G. Mathew',
                                               border: InputBorder.none,
@@ -111,7 +113,7 @@ class SearchScreen extends StatelessWidget {
                                                   children: [
                                                     IconButton(
                                                       onPressed: ()=> cubit.showFilterDialogue(context),
-                                                      icon: Icon(cubit.selectedFloorNumber==null? 
+                                                      icon: Icon(cubit.selectedRoomId==null? 
                                                               Icons.filter_list_rounded 
                                                             : Icons.filter_list_off_rounded
                                                             )),
@@ -127,30 +129,37 @@ class SearchScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Expanded(
-                                          child: ListView.builder(
-                                            shrinkWrap: true,
-                                            itemCount: 10,
-                                            itemBuilder: (_,i)=> Container(
-                                              margin: const EdgeInsets.symmetric(vertical: 5),
-                                              padding: EdgeInsets.symmetric(horizontal:15.w,vertical: 10),
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(AppSize.s8),
-                                                border: Border.all(color: ColorManager.primary)
-                                              ),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text('Abdelrahman Atef',style: getBoldStyle(color: ColorManager.darkGrey),),
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Text('@HRAbdelrahman',style: getRegularStyle(color: ColorManager.greyTextOpacity,height: 1.4),),
-                                                      Text('#1st Floor',style: getSemiBoldStyle(fontSize: FontSize.s12.sp,color: ColorManager.primary,height: 1.4)),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                            )
+                                          child: BlocBuilder<SearchCubit, SearchState>(
+                                            builder: (context, state) {
+                                              return ListView.builder(
+                                                    shrinkWrap: true,
+                                                    itemCount: cubit.searchResults.length,
+                                                    itemBuilder: (_,i) {
+                                                      var current = cubit.searchResults[i];
+                                                      return Container(
+                                                      margin: const EdgeInsets.symmetric(vertical: 5),
+                                                      padding: EdgeInsets.symmetric(horizontal:15.w,vertical: 10),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(AppSize.s8),
+                                                        border: Border.all(color: ColorManager.primary)
+                                                      ),
+                                                      child: Column(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          Text(current.fullName??'-',style: getBoldStyle(color: ColorManager.darkGrey),),
+                                                          Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Text(current.jobTitle??'-',style: getRegularStyle(color: ColorManager.greyTextOpacity,height: 1.4),),
+                                                              Text(current.room?.name??'Out Range',style: getSemiBoldStyle(fontSize: FontSize.s12.sp,color: ColorManager.primary,height: 1.4)),
+                                                            ],
+                                                          )
+                                                        ],
+                                                      ),
+                                                    );
+                                                    }
+                                                  );
+                                            },
                                           ),
                                         ),
                                         const SizedBox(height: 20),
