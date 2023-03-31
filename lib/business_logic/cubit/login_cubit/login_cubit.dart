@@ -47,7 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
   
   String? emailValidation(String email){
-    if(!REGEXCheck.isEmail(email)) return 'برجاء إدخال بريد إلكتروني صالح';
+    if(!REGEXCheck.isEmail(email)) return 'Please enter a valid email';
     return null;
   }
 

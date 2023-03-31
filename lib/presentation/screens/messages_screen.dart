@@ -28,9 +28,14 @@ class MessagesScreen extends StatelessWidget {
             shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               children: const [
-                MessageItem(name: 'Human Resources'),
+                MessageItem(
+                  name: 'Human Resources',
+                  message: 'When will the meeting start?',
+                ),
                 Divider(),
-                MessageItem(name: 'Manager'),
+                MessageItem(name: 'Flutter Developer',
+                message: 'I have completed all assigned tasks.',
+                ),
                 Divider(),
                 // MessageItem(name: ''),
                 // Divider(),
@@ -46,8 +51,10 @@ class MessagesScreen extends StatelessWidget {
 
 class MessageItem extends StatelessWidget {
   final String name;
+  final String message;
   const MessageItem({
     required this.name,
+    required this.message,
     super.key,
   });
 
@@ -97,7 +104,7 @@ class MessageItem extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'You have done a great jop this month, and you have been',
+                        message,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: getRegularStyle(color: ColorManager.greyTextOpacity),

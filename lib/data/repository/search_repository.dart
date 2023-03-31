@@ -12,11 +12,11 @@ class SearchRepository {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   Future<NetworkResult<List<UserModel>>> getUsersByName({required String name}) async {
-    try {String searchQueryLower = name.toLowerCase();
-      String searchQueryUpper = name.toUpperCase();
+    try {
+      String searchQuery = name;
       var querySnapshot = await firebaseFirestore.collection(FirebaseCollections.users)
-      .where('name', isGreaterThanOrEqualTo: name)
-      .where('name', isLessThanOrEqualTo: name + '\uf8ff')
+      .where('name', isGreaterThanOrEqualTo: searchQuery)
+      .where('name', isLessThanOrEqualTo: '$searchQuery\uf8ff')
       .get();
       List<UserModel> users = []; 
       for (var doc in querySnapshot.docs) {
