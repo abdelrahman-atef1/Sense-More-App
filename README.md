@@ -1,4 +1,4 @@
-# sense_more
+# Sense More
 
 A new Flutter project.
 
