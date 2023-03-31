@@ -1,7 +1,7 @@
 # Sense More
-# Indoor Tracking System
 
-Sense More is an application that allows managers to track their employees' activities indoor, filter them based on different criteria, communicate with them via chat, and share announcements and updates in the company. Additionally, it provides employees with information about their statistics, such as consumed and remaining vacations.
+Sense More is a smart attendance tracking system for companies and organizations, using indoor tracking. The system allows managers to easily track employee attendance, search and filter employees, communicate via chat, receive company announcements and updates, and view employee statistics such as consumed and remaining vacation days.
+
 
 ## Features
 
