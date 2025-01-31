@@ -16,6 +16,53 @@ Sense More is a smart attendance tracking system for companies and organizations
 - The app is built using Flutter, which is a UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
 - The backend is powered by Firebase, which is a mobile and web application development platform that provides a comprehensive suite of tools for building scalable, secure, and reliable apps.
 
+## UI Screenshots
+
+<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%; margin-bottom: 20px;"><iframe src="https://drive.google.com/file/d/1B2fuTr2UfSitV4Ae_uIDdzviQYUVL3Ak/preview" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media;"></iframe></div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/login.png" alt="Login" style="width: 300px; height: auto;">
+    <p>Login</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/home.png" alt="Home" style="width: 300px; height: auto;">
+    <p>Home</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/messages.png" alt="Messages" style="width: 300px; height: auto;">
+    <p>Messages</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/profile.png" alt="Profile" style="width: 300px; height: auto;">
+    <p>Profile</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/find_employee_text_search.png" alt="Find Employee Text Search" style="width: 300px; height: auto;">
+    <p>Find Employee Text Search</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/find_employee_floor_search.png" alt="Find Employee Floor Search" style="width: 300px; height: auto;">
+    <p>Find Employee Floor Search</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/find_employee_2.png" alt="Find Employee Floor Search 2" style="width: 300px; height: auto;">
+    <p>Find Employee Floor Search 2</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/find_employee_no_access.png" alt="Find Employee No Access" style="width: 300px; height: auto;">
+    <p>Find Employee No Access</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/settings_menu.png" alt="Settings Menu" style="width: 300px; height: auto;">
+    <p>Settings Menu</p>
+  </div>
+  <div style="flex: 1 1 45%; text-align: center;">
+    <img src="./assets/ui/edit_profile.png" alt="Edit Profile" style="width: 300px; height: auto;">
+    <p>Edit Profile</p>
+  </div>
+</div>
+
 ## Getting Started
 
 To run the app locally, follow these steps:
