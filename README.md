@@ -18,7 +18,7 @@ Sense More is a smart attendance tracking system for companies and organizations
 
 ## UI Screenshots
 
-<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%; margin-bottom: 20px;"><iframe src="https://drive.google.com/file/d/1B2fuTr2UfSitV4Ae_uIDdzviQYUVL3Ak/preview" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media;"></iframe></div>
+[Watch the video here](https://drive.google.com/file/d/1B2fuTr2UfSitV4Ae_uIDdzviQYUVL3Ak/view?usp=sharing)
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <div style="flex: 1 1 45%; text-align: center;">
